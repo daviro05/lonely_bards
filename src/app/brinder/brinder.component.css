@@ -1,0 +1,166 @@
+.character-slot {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  cursor: grab;
+    transition: border-color 0.3s ease;
+}
+
+.character-slot:active {
+  cursor: grabbing;
+}
+
+
+.character-selected {
+  border-color: #699bf8; /* Azul para resaltar el personaje */
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.character-slot img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.selection-slot {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center;
+  position: relative;
+  flex-direction: column; /* Organiza los elementos en una columna */
+}
+
+
+.character-info {
+  text-align: center;
+}
+
+
+.selection-slot {
+  width: 120px;
+  height: 140px;
+  margin: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center;
+}
+
+
+.selection-slot img {
+  width: 100px;
+  height: 100px;
+  margin-top: 15px;
+  object-fit: cover;
+}
+
+.drag-area {
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 10px; /* Espaciado entre los personajes */
+}
+
+.character-slot {
+  flex: 0 0 auto; /* Evita que los elementos se reduzcan en tamaño */
+  text-align: center;
+}
+
+.character-slot img {
+  max-width: 100%;
+  max-height: 100px; /* Altura máxima */
+  object-fit: cover; /* Ajusta la proporción de la imagen */
+  border-radius: 8px; /* Opcional: redondear las esquinas */
+}
+
+
+.drag-area::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color de la barra */
+  border-radius: 4px;
+}
+
+
+.selection-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.heart-icon {
+  margin: 0 20px;
+  font-size: 36px;
+  color: #f44336; /* Rojo */
+}
+
+.send-button {
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px; /* Aumenta el tamaño del texto */
+  text-align: center;
+  color: #4B3D25; /* Color marrón oscuro */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
+  letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
+  padding: 20px;
+  margin-top: 50px;
+  animation: fadeIn 1s ease-out, swing 1s ease-out; /* Añadimos animaciones */
+}
+
+.message-area {
+  margin: 20px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación de oscilación ligera */
+@keyframes swing {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
