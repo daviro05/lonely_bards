@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:3001/api'
+  BASE_URL: 'https://drmnextcloud.ddns.net:3001/api'
 };
