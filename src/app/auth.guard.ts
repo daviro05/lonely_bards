@@ -7,21 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router) {}
-  
-   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+ private PASSWORD_KEY = 'auth_password';
 
-    // Aquí verificamos si la contraseña es correcta
+  constructor(private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    const savedPassword = localStorage.getItem(this.PASSWORD_KEY);
+
+    // Si ya ingresó la contraseña correctamente antes, permitir el acceso
+    if (savedPassword === 'zorronegro33') {
+      return true;
+    }
+
+    // Si no ha ingresado, pedir la contraseña
     const password = prompt('Ingresa contraseña');
     
     if (password === 'zorronegro33') {
-      return true;  // Si la contraseña es correcta, se permite el acceso
+      localStorage.setItem(this.PASSWORD_KEY, password);  // Guardar en localStorage
+      return true;
     } else {
       alert('Incorrecto. No puedes acceder');
-      this.router.navigate(['/']);  // Redirigimos al inicio o a cualquier otra página
-      return false;  // Bloqueamos el acceso
+      this.router.navigate(['/']);  // Redirigir al inicio
+      return false;
     }
   }
   
