@@ -6,9 +6,9 @@ import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: 'inicio', component: BrinderComponent }, // Ruta específica para "Inicio"
+  { path: '', component: BrinderComponent }, // Ruta específica para "Inicio"
   { path: 'alta', component: AltaPersonajeComponent, canActivate: [AuthGuard] },  // Ruta protegida
-  { path: '**', redirectTo: '/inicio', pathMatch: 'full' }, // Redirección a la ruta específica
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // Redirección a la ruta específica
 ];
 
 
