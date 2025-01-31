@@ -1,9 +1,9 @@
 export class BrinderModel {
 
   constructor(
-    public id: string,
-    public nombre: string,
+    public name: string,
     public image_url: string,
+    public id?: string,
   ) { }
 
 }

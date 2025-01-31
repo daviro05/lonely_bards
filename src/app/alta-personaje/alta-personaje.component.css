@@ -1,0 +1,30 @@
+.container {
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+  display: inline-grid;
+}
+
+.full-width {
+  width: 100%;
+}
+
+button {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 40px; /* Aumenta el tamaño del texto */
+  text-align: center;
+  color: #4B3D25; /* Color marrón oscuro */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
+  letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
+  padding: 20px;
+  margin-top: 50px;
+  animation: fadeIn 1s ease-out, swing 1s ease-out; /* Añadimos animaciones */
+}

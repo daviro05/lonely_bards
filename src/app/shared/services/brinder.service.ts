@@ -25,11 +25,11 @@ export class BrinderService {
     return this.http.post(`${this.BASE_URL}/matches`, matchData);
   }
 
-  agregarUsuario(personaje: BrinderModel) {
-    return this.http.post<string>(`${this.BASE_URL}/usuarios/agregar`, personaje);
+  agregarPersonaje(personaje: FormData) {
+    return this.http.post<string>(`${this.BASE_URL}/personajes/agregar`, personaje);
   }
 
-  borrarUsuario(id: string) {
-    return this.http.delete<string>(`${this.BASE_URL}/usuarios/borrar/${id}`)
+  borrarPersonaje(id: string) {
+    return this.http.delete<string>(`${this.BASE_URL}/personajes/borrar/${id}`)
   }
 }

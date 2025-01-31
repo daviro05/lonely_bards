@@ -17,6 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { BrinderComponent } from './brinder/brinder.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AltaPersonajeComponent } from './alta-personaje/alta-personaje.component';
 
 
 
@@ -25,6 +26,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppComponent,
     BrinderComponent,
     DialogComponent,
+    AltaPersonajeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatMenuModule,
     MatDividerModule,
     MatSelectModule,
-    DragDropModule
+    DragDropModule,
   ],
   providers: [
   ],

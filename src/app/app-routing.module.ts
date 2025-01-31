@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrinderComponent } from './brinder/brinder.component';
+import { AltaPersonajeComponent } from './alta-personaje/alta-personaje.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: 'inicio', component: BrinderComponent }, // Ruta específica para "Inicio"
+  { path: 'alta', component: AltaPersonajeComponent, canActivate: [AuthGuard] },  // Ruta protegida
   { path: '**', redirectTo: '/inicio', pathMatch: 'full' }, // Redirección a la ruta específica
 ];
 
