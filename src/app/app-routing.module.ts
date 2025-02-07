@@ -3,14 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrinderComponent } from './brinder/brinder.component';
 import { AltaPersonajeComponent } from './alta-personaje/alta-personaje.component';
 import { AuthGuard } from './auth.guard';
-
+import { InicioComponent } from './inicio/inicio.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
-  { path: '', component: BrinderComponent }, // Ruta específica para "Inicio"
-  { path: 'alta', component: AltaPersonajeComponent, canActivate: [AuthGuard] },  // Ruta protegida
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // Redirección a la ruta específica
+  { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
+  { path: 'brinder', component: BrinderComponent }, // Ruta específica para "Brinder"
+  { path: 'info', component: InfoComponent }, // Ruta específica para "Info"
+  { path: 'alta', component: AltaPersonajeComponent, canActivate: [AuthGuard] }, // Ruta de alta de usuarios protegida
+  { path: '**', redirectTo: 'inicio', pathMatch: 'full' }, // Redirección a la ruta específica
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

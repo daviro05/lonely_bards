@@ -115,6 +115,10 @@
   display: inline-grid;
 }
 
+.volver{
+  margin-top:20px
+}
+
 h1 {
   font-size: 60px; /* Aumenta el tamaño del texto */
   text-align: center;

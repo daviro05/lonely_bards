@@ -18,6 +18,8 @@ import { BrinderComponent } from './brinder/brinder.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AltaPersonajeComponent } from './alta-personaje/alta-personaje.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { InfoComponent } from './info/info.component';
 
 
 
@@ -27,6 +29,8 @@ import { AltaPersonajeComponent } from './alta-personaje/alta-personaje.componen
     BrinderComponent,
     DialogComponent,
     AltaPersonajeComponent,
+    InicioComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
