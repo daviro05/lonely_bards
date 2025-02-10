@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BrinderService } from '../shared/services/brinder.service';
+import { BrinderService } from '../../shared/services/brinder.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
-import { Utils } from '../shared/utils';
+import { DialogComponent } from '../../dialog/dialog.component';
+import { Utils } from '../../shared/utils';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 export class AltaPersonajeComponent {
   utils: Utils;
   nombre: string = '';
+  info_user: string = '';
+  tipo: string = 'brinder';
   imagen: File | null = null;
 
   constructor(
@@ -41,25 +43,33 @@ export class AltaPersonajeComponent {
     const formData = new FormData();
     formData.append('name', this.nombre);
     formData.append('image_url', this.imagen ?? '');
+    formData.append('tipo', this.tipo);
+    formData.append('info_user', this.info_user);
 
     this.brinderService.agregarPersonaje(formData).subscribe(
       (response) => {
-        this.openDialog('Alta correcta', 'Personaje registrado con éxito');
+        const dialogRef = this.openDialog(
+          'Alta correcta',
+          'Personaje registrado con éxito'
+        );
         this.nombre = '';
         this.imagen = null;
+        dialogRef.afterClosed().subscribe(() => {
+          this.navegar('alta');
+        });
       },
       (error) => {
         console.error('Error al registrar al personaje:', error);
         this.openDialog(
           'Error',
-          'Hubo un error al registrar al personaje. <br>Contacta con el Centurión.'
+          'Hubo un error al registrar al personaje. Contacta con el Centurión.'
         );
       }
     );
   }
 
-  openDialog(title: string, message: string): void {
-    this.dialog.open(DialogComponent, {
+  openDialog(title: string, message: string) {
+    return this.dialog.open(DialogComponent, {
       data: {
         title: title,
         message: message,

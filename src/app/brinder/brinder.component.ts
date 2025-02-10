@@ -53,8 +53,11 @@ export class BrinderComponent implements OnInit {
       const matchData = {
         personaje1_id: this.selectedCharacters[0].id,
         personaje2_id: this.selectedCharacters[1].id,
+        personaje1_name: this.selectedCharacters[0].name,
+        personaje2_name: this.selectedCharacters[1].name,
         ip: sessionStorage.getItem('userId') ?? '',
         message: this.optionalMessage || '',
+        tipo: 'brinder'
       };
 
       this.brinderService.sendMatch(matchData).subscribe(

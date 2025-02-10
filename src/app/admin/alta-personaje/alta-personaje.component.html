@@ -7,6 +7,11 @@
       <input matInput type="text" [(ngModel)]="nombre" name="nombre" required>
     </mat-form-field>
 
+    <mat-form-field class="full-width">
+      <mat-label>Info</mat-label>
+      <input matInput type="text" [(ngModel)]="info_user" name="info">
+    </mat-form-field>
+
     <mat-form-field class="full-width" appearance="outline">
     <mat-label>Subir imagen</mat-label>
     <input type="text" matInput [value]="imagen?.name || 'Sin archivo'" readonly>
@@ -20,7 +25,7 @@
         <button mat-raised-button color="primary" type="submit" [disabled]="!nombre" (click)="onSubmit()">
         Guardar
         </button>
-        <button mat-flat-button type="button" (click)="navegar('inicio')">
+        <button mat-flat-button type="button" (click)="navegar('admin')">
         Volver
         </button>
     </div>

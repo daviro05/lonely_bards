@@ -1,0 +1,28 @@
+<div class="personajes-container">
+    <h1>LISTA PERSONAJES</h1>
+    <div class="opciones">
+    <button mat-flat-button class="nuevo" type="button" (click)="navegar('alta')">
+      + Nuevo
+    </button>
+    <button mat-flat-button class="estadisticas" type="button" (click)="navegar('estadisticas')" disabled>
+      Estadísticas
+    </button>
+    </div>
+  <ul>
+    <li *ngFor="let personaje of personajes">
+      <img [src]="personaje.image_url" [alt]="personaje.name" class="personaje-img" />
+      <div class="info">
+        <span>{{ personaje.name }}</span>
+      </div>
+      <div class="botones">
+        <button class="editar" (click)="editarPersonaje(personaje.id!)">✏️</button>
+        <button class="eliminar" (click)="eliminarPersonaje(personaje.id!)">❌</button>
+      </div>
+    </li>
+  </ul>
+  <div class="button-container">
+    <button mat-flat-button type="button" (click)="navegar('inicio')">
+      Volver
+    </button>
+  </div>
+</div>

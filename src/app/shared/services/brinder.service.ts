@@ -21,12 +21,16 @@ export class BrinderService {
     return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personajes/${id}`);
   }
 
-   sendMatch(matchData: MatchModel) {
+  sendMatch(matchData: MatchModel) {
     return this.http.post(`${this.BASE_URL}/matches`, matchData);
   }
 
   agregarPersonaje(personaje: FormData) {
     return this.http.post<string>(`${this.BASE_URL}/personajes/agregar`, personaje);
+  }
+
+  updatePersonaje(id: string, personaje: Partial<BrinderModel>) {
+    return this.http.put(`${this.BASE_URL}/personajes/editar/${id}`, personaje);
   }
 
   borrarPersonaje(id: string) {

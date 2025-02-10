@@ -10,7 +10,7 @@ import { Utils } from '../shared/utils';
 export class InicioComponent {
   utils: Utils;
   isMuted: boolean = false;
-  audio = new Audio('assets/sounds/roman-music.mp3');
+  audio = new Audio();
 
   constructor(private router: Router) {
     this.audio.loop = true;
