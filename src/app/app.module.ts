@@ -22,6 +22,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { InfoComponent } from './info/info.component';
 import { ListaPersonajesComponent } from './admin/lista-personajes/lista-personajes.component';
 import { EditarPersonajeComponent } from './admin/editar-personaje/editar-personaje.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { EditarPersonajeComponent } from './admin/editar-personaje/editar-person
     InfoComponent,
     ListaPersonajesComponent,
     EditarPersonajeComponent,
+    InfoDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { EditarPersonajeComponent } from './admin/editar-personaje/editar-person
     MatDividerModule,
     MatSelectModule,
     DragDropModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

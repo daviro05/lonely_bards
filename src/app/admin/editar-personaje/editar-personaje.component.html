@@ -1,6 +1,6 @@
 <div class="editar-container">
-  <h1>Editar Personaje</h1>
-  <form (ngSubmit)="guardarCambios()">
+  <h1>EDITAR PERSONAJE</h1>
+  <form *ngIf="personaje" (ngSubmit)="guardarCambios()">
     <label>Nombre:</label>
     <input type="text" [(ngModel)]="personaje.name" name="name" required />
 
@@ -13,7 +13,7 @@
     <label>Imagen:</label>
     <input type="text" [(ngModel)]="personaje.image_url" name="image_url" required />
 
-    <button mat-raised-button type="submit">Guardar Cambios</button>
-    <button mat-raised-button type="button" (click)="navegar('admin')">Volver</button>
+    <button mat-raised-button class="guardar" type="submit">Guardar Cambios</button>
+    <button mat-raised-button class="volver" (click)="navegar('admin')">Volver</button>
   </form>
 </div>

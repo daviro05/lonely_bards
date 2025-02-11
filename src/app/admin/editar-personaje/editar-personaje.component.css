@@ -2,13 +2,18 @@
   width: 100%;
   max-width: 500px;
   margin: auto;
+  height: 100vh;
   padding: 20px;
-  background: #f4f4f4;
-  border-radius: 8px;
+  background: rgb(255, 255, 247); /* Pergamino translúcido */
 }
 
-h2 {
+h1 {
+  font-size: 40px; /* Aumenta el tamaño del texto */
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
+  letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
+  padding: 20px;
+  margin-top: 50px;
 }
 
 form {
@@ -34,4 +39,9 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.guardar{
+    border: 1px solid #f7d461;
+ background: #f8e091 !important;
 }

@@ -30,6 +30,7 @@ export class ListaPersonajesComponent implements OnInit {
   cargarPersonajes(): void {
     this.brinderService.obtenerPersonajes().subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
+      this.personajes = this.personajes.filter((personaje) => personaje.tipo === 'brinder');
     });
   }
 
@@ -61,6 +62,16 @@ export class ListaPersonajesComponent implements OnInit {
         message: message,
       },
     });
+  }
+
+  getBordeClase(character: any): string {
+    switch (character.info_user) {
+      case 'romantico': return 'borde-rojo';
+      case 'amistad': return 'borde-azul';
+      case 'surja': return 'borde-verde';
+      case 'tipo4': return 'borde-amarillo';
+      default: return 'borde-generico';
+    }
   }
 
   navegar(ruta: string) {

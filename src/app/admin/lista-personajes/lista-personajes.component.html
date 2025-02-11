@@ -1,5 +1,6 @@
 <div class="personajes-container">
     <h1>LISTA PERSONAJES</h1>
+    <div><p>Totales: {{personajes.length}}</p></div>
     <div class="opciones">
     <button mat-flat-button class="nuevo" type="button" (click)="navegar('alta')">
       + Nuevo
@@ -9,7 +10,7 @@
     </button>
     </div>
   <ul>
-    <li *ngFor="let personaje of personajes">
+    <li *ngFor="let personaje of personajes" [ngClass]="getBordeClase(personaje)">
       <img [src]="personaje.image_url" [alt]="personaje.name" class="personaje-img" />
       <div class="info">
         <span>{{ personaje.name }}</span>
