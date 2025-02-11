@@ -23,7 +23,8 @@ import { InfoComponent } from './info/info.component';
 import { ListaPersonajesComponent } from './admin/lista-personajes/lista-personajes.component';
 import { EditarPersonajeComponent } from './admin/editar-personaje/editar-personaje.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ContactoComponent } from './contacto/contacto.component'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox'
     ListaPersonajesComponent,
     EditarPersonajeComponent,
     InfoDialogComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

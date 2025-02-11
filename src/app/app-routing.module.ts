@@ -7,11 +7,13 @@ import { InicioComponent } from './inicio/inicio.component';
 import { InfoComponent } from './info/info.component';
 import { ListaPersonajesComponent } from './admin/lista-personajes/lista-personajes.component';
 import { EditarPersonajeComponent } from './admin/editar-personaje/editar-personaje.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
   { path: 'brinder', component: BrinderComponent }, // Ruta específica para "Brinder"
   { path: 'info', component: InfoComponent }, // Ruta específica para "Info"
+  { path: 'contacto', component: ContactoComponent }, // Ruta específica para "Contacto"
   { path: 'admin', component: ListaPersonajesComponent, canActivate: [AuthGuard] }, // Ruta de admin de usuarios protegida
   { path: 'alta', component: AltaPersonajeComponent, canActivate: [AuthGuard] }, // Ruta de alta de usuarios protegida
   { path: 'editar-personaje/:id', component: EditarPersonajeComponent, canActivate: [AuthGuard] }, // Ruta de edición de usuarios protegida

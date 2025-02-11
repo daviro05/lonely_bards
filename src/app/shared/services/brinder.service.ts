@@ -36,4 +36,8 @@ export class BrinderService {
   borrarPersonaje(id: string) {
     return this.http.delete<string>(`${this.BASE_URL}/personajes/borrar/${id}`)
   }
+
+  enviarContacto(contacto: { nombre: string; mensaje: string }) {
+    return this.http.post<string>(`${this.BASE_URL}/contacto`, contacto);
+  }
 }

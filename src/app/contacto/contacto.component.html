@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Contacto</h1>
+  <form (ngSubmit)="enviarMensaje()">
+    <label for="nombre">Nombre</label>
+    <input
+      type="text"
+      id="nombre"
+      [(ngModel)]="contacto.nombre"
+      name="nombre"
+      required
+    />
+
+    <label for="mensaje">Mensaje</label>
+    <textarea
+      id="mensaje"
+      [(ngModel)]="contacto.mensaje"
+      name="mensaje"
+      required
+    ></textarea>
+
+    <div class="button-container">
+      <button
+        mat-flat-button
+        type="submit"
+        class="guardar"
+        [disabled]="!contacto.nombre || !contacto.mensaje"
+      >
+        Enviar
+      </button>
+      <button mat-flat-button class="volver" type="button" (click)="navegar('inicio')">
+        Volver
+      </button>
+    </div>
+  </form>
+</div>
