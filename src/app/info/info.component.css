@@ -31,8 +31,7 @@ display: flex;
 }
 
 .info{
-    margin-top: 20px;
-    font-size: 18px;
+    font-size: 17px;
     overflow-y: auto;
     text-align: left;
     background: rgba(255, 255, 224, 0.9);

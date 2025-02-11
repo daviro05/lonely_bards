@@ -1,0 +1,25 @@
+.cerrar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+    button{
+        border: 1px solid #f7d461;
+        background: #f8e091 !important;
+    }
+}
+
+$bordes: (
+  rojo: #ec7063,
+  azul: #5dade2,
+  verde: #52be80,
+  amarillo: #f7dc6f,
+  generico: #5dade2
+);
+
+@each $nombre, $color in $bordes {
+  .color-#{$nombre} {
+    color: $color;
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>INSTRUCCIONES DE USO</h1>
+<div mat-dialog-content>
+  <p>Selecciona dos personajes y crea un vínculo entre ellos.</p>
+  <p>Puedes arrastrar y soltar (en PC) o tocar el personaje y hacerlo de nuevo en el cuadro de parejas para seleccionarlo (Móvil).</p>
+  <p>Opcionalmente, puedes añadir un mensaje anónimo (esto es lo interesante).</p>
+  <p>Según el color que tenga cada personaje, tendrá los siguientes intereses:</p>
+  <ul>
+  <li><span class="color-rojo">Rojo:</span> Romántico</li>
+  <li><span class="color-azul">Azul:</span> Amistad</li>
+  <li><span class="color-verde">Verde:</span> Lo que surja</li>
+  </ul>
+  <mat-checkbox [(ngModel)]="noMostrarMas">No mostrar más</mat-checkbox>
+</div>
+<div class="cerrar" mat-dialog-actions>
+  <button mat-raised-button class="entendido" (click)="cerrar()">Entendido</button>
+</div>
