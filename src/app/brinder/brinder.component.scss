@@ -6,7 +6,7 @@
   border-radius: 8px;
   text-align: center;
   cursor: grab;
-    transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .character-slot:active {
@@ -23,20 +23,6 @@
   width: 100px;
   height: 100px;
   object-fit: cover;
-}
-
-.selection-slot {
-  width: 120px;
-  height: 120px;
-  margin: 10px;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  text-align: center;
-  position: relative;
-  flex-direction: column; /* Organiza los elementos en una columna */
 }
 
 
@@ -94,7 +80,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .heart-icon {
@@ -103,11 +89,6 @@
   color: #f44336; /* Rojo */
 }
 
-.send-button {
-  width: 200px;
-  height: 50px;
-  font-size: 18px;
-}
 
 .button-container {
   margin-top: 20px;
@@ -119,19 +100,32 @@
   margin-top:20px
 }
 
+.enviar{
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+}
+
+button:not(:disabled).enviar{
+ border: 1px solid #f7d461;
+ background: #f8e091 !important;
+}
+
 h1 {
   font-size: 60px; /* Aumenta el tamaño del texto */
   text-align: center;
-  color: #4B3D25; /* Color marrón oscuro */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
-  letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
-  padding: 20px;
-  margin-top: 50px;
-  animation: fadeIn 1s ease-out, swing 1s ease-out; /* Añadimos animaciones */
+  margin-top: 40px;
+  animation: fadeIn 1s ease-out; /* Añadimos animaciones */
+}
+
+.subtitulo{
+  margin-bottom: 10px;
 }
 
 .message-area {
   margin: 20px 0;
+  display: grid;
 }
 
 textarea {
@@ -145,6 +139,21 @@ textarea {
   text-align: center;
 }
 
+$bordes: (
+  rojo: #ec7063,
+  azul: #5dade2,
+  verde: #52be80,
+  amarillo: #f7dc6f,
+  generico: #5dade2
+);
+
+@each $nombre, $color in $bordes {
+  .borde-#{$nombre} {
+    border: 3px solid $color;
+  }
+}
+
+
 
 /* Animación de entrada suave */
 @keyframes fadeIn {
@@ -153,19 +162,6 @@ textarea {
   }
   to {
     opacity: 1;
-  }
-}
-
-/* Animación de oscilación ligera */
-@keyframes swing {
-  0% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(0);
   }
 }
 

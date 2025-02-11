@@ -5,17 +5,19 @@ import { DialogComponent } from '../dialog/dialog.component';
 import { BrinderService } from '../shared/services/brinder.service';
 import { Router } from '@angular/router';
 import { Utils } from '../shared/utils';
+import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-brinder',
   templateUrl: './brinder.component.html',
-  styleUrls: ['./brinder.component.css'],
+  styleUrls: ['./brinder.component.scss'],
 })
 export class BrinderComponent implements OnInit {
   utils: Utils;
   characters: any[] = []; // Ahora este arreglo se llenará con los personajes desde el backend.
   selectedCharacters: any[] = [null, null];
   canSubmit = false;
+  noMostrarMas = false;
   draggedCharacter: any = null;
   optionalMessage: string = ''; // Nueva propiedad para el mensaje opcional
   selectedCharacterIndex: number | null = null; // Índice del personaje actualmente seleccionado
@@ -32,6 +34,7 @@ export class BrinderComponent implements OnInit {
   // Este método se ejecuta cuando el componente se inicializa
   ngOnInit() {
     this.loadCharacters();
+    this.mostrarPanelInformativo();
   }
 
   // Método para cargar los personajes desde el backend
@@ -145,6 +148,35 @@ export class BrinderComponent implements OnInit {
     // Generar un ID único (puedes usar una librería como uuid)
     return crypto.randomUUID();
   }
+
+  getBordeClase(character: any): string {
+    switch (character.info_user) {
+      case 'romantico': return 'borde-rojo';
+      case 'amistad': return 'borde-azul';
+      case 'surja': return 'borde-verde';
+      case 'tipo4': return 'borde-amarillo';
+      default: return 'borde-generico';
+    }
+  }
+
+   mostrarPanelInformativo() {
+    const noMostrarMas = localStorage.getItem('brinder_noMostrarInfo');
+    if (!noMostrarMas) {
+      this.openInfoDialog();
+    }
+  }
+
+  openInfoDialog() {
+    const dialogRef = this.dialog.open(InfoDialogComponent);
+
+    // Al cerrar el diálogo, actualizamos el estado en el localStorage
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'entendido') {
+        localStorage.setItem('brinder_noMostrarInfo', 'true');
+      }
+    });
+  }
+
 
   navegar(ruta: string) {
     this.utils.navegar(ruta);

@@ -1,5 +1,6 @@
 <div id="app" class="container">
   <h1>BRINDER</h1>
+    <p class="subtitulo">Uniendo personas...y personajes</p>
   
   <!-- Área de selección de personajes -->
   <div class="selection-area">
@@ -47,6 +48,7 @@
     <div
       class="character-slot"
       *ngFor="let character of characters; let i = index"
+      [ngClass]="getBordeClase(character)"
       [attr.data-id]="character.id"
       [class.character-selected]="selectedCharacterIndex === i"
       draggable="true"
@@ -60,7 +62,7 @@
 
   <!-- Botón de enviar más grande -->
   <div class="button-container">
-    <button color="primary" mat-flat-button (click)="sendMatch()" [disabled]="!canSubmit" class="send-button">ENVIAR</button>
+    <button class="enviar" mat-flat-button (click)="sendMatch()" [disabled]="!canSubmit">ENVIAR</button>
     <button class="volver" mat-flat-button type="button" (click)="navegar('inicio')">Volver</button>
   </div>
 </div>
