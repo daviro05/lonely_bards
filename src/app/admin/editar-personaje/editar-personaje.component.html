@@ -12,6 +12,8 @@
 
     <label>Imagen:</label>
     <input type="text" [(ngModel)]="personaje.image_url" name="image_url" required />
+    <br>
+    <input type="text" value="https://lh3.googleusercontent.com/d/" name="image_url_drive" />
 
     <button mat-raised-button class="guardar" type="submit">Guardar Cambios</button>
     <button mat-raised-button class="volver" (click)="navegar('admin')">Volver</button>
