@@ -15,6 +15,17 @@ h1 {
   margin-top: 20px;
 }
 
+.contacto-info {
+  display: block;
+    margin: 25px 0px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #c2a279;
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -37,7 +48,7 @@ input, textarea {
 
 textarea {
   resize: none;
-  height: 100px;
+  height: 150px;
 }
 
 .button-container {
