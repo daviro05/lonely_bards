@@ -52,7 +52,7 @@ export class ListaPersonajesComponent implements OnInit {
   }
 
   editarPersonaje(id: string): void {
-    this.utils.navegar(`/editar-personaje/${id}`);
+    this.utils.navegar(`admin/editar-personaje/${id}`);
   }
 
   openDialog(title: string, message: string) {

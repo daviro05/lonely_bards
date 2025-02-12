@@ -24,7 +24,9 @@ import { ListaPersonajesComponent } from './admin/lista-personajes/lista-persona
 import { EditarPersonajeComponent } from './admin/editar-personaje/editar-personaje.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ContactoComponent } from './contacto/contacto.component'
+import { ContactoComponent } from './contacto/contacto.component';
+import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
+import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component'
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ContactoComponent } from './contacto/contacto.component'
     EditarPersonajeComponent,
     InfoDialogComponent,
     ContactoComponent,
+    BuzonPersonalComponent,
+    ListaBuzonComponent,
   ],
   imports: [
     BrowserModule,
