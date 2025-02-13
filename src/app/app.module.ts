@@ -26,7 +26,8 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
-import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component'
+import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
+import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.co
     ContactoComponent,
     BuzonPersonalComponent,
     ListaBuzonComponent,
+    CodigoDialogComponent,
   ],
   imports: [
     BrowserModule,

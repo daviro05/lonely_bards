@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="titulo-dialogo">Introduce tu código</h2>
+
+<mat-dialog-content class="contenido-dialogo">
+  <mat-form-field appearance="outline" class="campo-codigo">
+    <mat-label>Código</mat-label>
+    <input matInput [(ngModel)]="codigo" />
+  </mat-form-field>
+
+  <mat-checkbox class="checkbox-codigo" [(ngModel)]="guardarCodigo">
+    Recordar código
+  </mat-checkbox>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="acciones-dialogo">
+  <button mat-button class="boton-cancelar" (click)="cancelar()">Cancelar</button>
+  <button mat-flat-button color="primary" class="boton-confirmar" [disabled]="!codigo" (click)="confirmar()">
+    Confirmar
+  </button>
+</mat-dialog-actions>

@@ -40,4 +40,8 @@ export class BrinderService {
   enviarContacto(contacto: { nombre: string; mensaje: string }) {
     return this.http.post<string>(`${this.BASE_URL}/contacto`, contacto);
   }
+
+  enviarMensaje(buzon: { codigo_origen: string; codigo_destino: string;  mensaje: string }) {
+    return this.http.post<string>(`${this.BASE_URL}/buzon/enviar`, buzon);
+  }
 }
