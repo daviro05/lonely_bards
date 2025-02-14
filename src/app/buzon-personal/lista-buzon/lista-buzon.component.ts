@@ -33,6 +33,7 @@ export class ListaBuzonComponent implements OnInit {
   solicitarCodigo(): void {
     // Revisar si hay un código guardado
     const codigoGuardado = localStorage.getItem('codigo_origen');
+    this.codigo = codigoGuardado;
 
     if (codigoGuardado) {
       this.validarCodigo(codigoGuardado);
@@ -63,16 +64,15 @@ export class ListaBuzonComponent implements OnInit {
         );
 
         if (personajeEncontrado) {
-          console.log('Códio encontrado');
+          console.log('Código encontrado');
+          this.codigo = codigo;
           this.nombrePersonaje = personajeEncontrado.name.toUpperCase();
           // Si el usuario marcó "Recordar código", lo guardamos
           if (guardar) {
             localStorage.setItem('codigo_origen', codigo);
           }
 
-          this.codigo = localStorage.getItem('codigo_origen'); // Recupera el código guardado
-
-          if (this.codigo) {
+          if (codigo) {
             this.obtenerMensajes();
           } else {
             this.navegar('/inicio'); // Si no hay código, redirige a inicio
