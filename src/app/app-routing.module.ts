@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'buzon',
     children: [
-      { path: '', component: BuzonPersonalComponent }, // Ruta específica para "Buzón"
+      { path: 'inicio', component: BuzonPersonalComponent }, // Ruta específica para "Buzón"
       { path: 'mensajes', component: ListaBuzonComponent }, // Ruta específica para "Mensajes"
     ], 
   },

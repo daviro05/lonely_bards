@@ -1,17 +1,31 @@
 <div class="chat-container">
-  <h2>Mensajes Recibidos</h2>
-
-  <div *ngIf="mensajes.length === 0" class="sin-mensajes">
-    No tienes mensajes en tu buzón.
-  </div>
-
-  <div *ngFor="let mensaje of mensajes" class="mensaje" (click)="toggleMensaje(mensaje)">
-    <div class="mensaje-header">
-      <span class="codigo-origen">De: Anónimo</span>
-      <small class="fecha">{{ mensaje.fecha_envio | date:'dd/MM/yyyy HH:mm' }}</small>
+    <div class="title-container">
+        <h2>BANDEJA DE ENTRADA DE {{nombrePersonaje}}</h2>
     </div>
-    
-    <p class="preview" *ngIf="!mensaje.expandido">{{ mensaje.mensaje | slice:0:30 }}...</p>
-    <p class="contenido" *ngIf="mensaje.expandido">{{ mensaje.mensaje }}</p>
-  </div>
+
+    <div *ngIf="mensajes.length === 0" class="sin-mensajes">
+        No tienes mensajes en tu buzón.
+    </div>
+
+    <div *ngFor="let mensaje of mensajes" class="mensaje" (click)="toggleMensaje(mensaje)">
+        <div class="mensaje-header">
+            <span class="codigo-origen">De: Anónimo</span>
+            <small class="fecha">{{ mensaje.fecha_envio | date:'dd/MM/yyyy HH:mm' }}</small>
+        </div>
+
+        <p class="preview" *ngIf="!mensaje.expandido">{{ mensaje.mensaje | slice:0:30 }}...</p>
+        <p class="contenido" *ngIf="mensaje.expandido">{{ mensaje.mensaje }}</p>
+    </div>
+
+    <div class="button-container">
+          <button mat-flat-button type="button" class="enviar" (click)="navegar('buzon/inicio')">
+        Escribir mensaje
+      </button>
+        <button mat-flat-button color="warn" class="boton-cerrar" (click)="cerrarBuzon()">
+            Cerrar Buzón
+        </button>
+        <button mat-flat-button class="volver" type="button" (click)="navegar('inicio')">
+            Volver
+        </button>
+    </div>
 </div>
