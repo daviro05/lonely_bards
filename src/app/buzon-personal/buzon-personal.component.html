@@ -1,10 +1,10 @@
 <div class="container">
-  <h1>BUZÓN PERSONAL {{ nombrePersonaje}}</h1>
+  <h1>BUZÓN PERSONAL {{ nombrePersonaje }}</h1>
 
   <div class="buzon-info">
     <span>Selecciona a un personaje de la lista.</span>
     <span>Escríbele un mensaje anónimo.</span>
-    <span>RECUERDA: Sólo el podrá leerlo ✨</span>
+    <span>RECUERDA: Sólo él podrá leerlo ✨</span>
   </div>
 
   <form (ngSubmit)="enviarMensaje()">
@@ -17,7 +17,8 @@
         name="codigo_destino"
         required
       >
-        <mat-option [ngClass]="getBordeClase(personaje)"
+        <mat-option
+          [ngClass]="getBordeClase(personaje)"
           *ngFor="let personaje of personajes"
           [value]="personaje.codigo"
           >{{ personaje.name }}</mat-option
@@ -34,24 +35,13 @@
     ></textarea>
 
     <div class="button-container">
-      <button
-        mat-flat-button
-        type="submit"
-        class="guardar"
-        [disabled]="!buzon.codigo_destino || !buzon.mensaje"
-      >
+      <button mat-flat-button type="submit" class="guardar" [disabled]="!buzon.codigo_destino || !buzon.mensaje">
         Enviar
       </button>
       <button mat-flat-button color="warn" class="boton-cerrar" (click)="cerrarBuzon()">
-  Cerrar Buzón
-</button>
-
-      <button
-        mat-flat-button
-        class="volver"
-        type="button"
-        (click)="navegar('inicio')"
-      >
+        Cerrar Buzón
+      </button>    
+      <button mat-flat-button class="volver" type="button" (click)="navegar('inicio')">
         Volver
       </button>
     </div>

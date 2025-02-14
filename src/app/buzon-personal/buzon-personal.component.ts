@@ -55,33 +55,32 @@ export class BuzonPersonalComponent implements OnInit {
   }
 
   validarCodigo(codigo: string, guardar?: boolean): void {
-    
     this.brinderService.obtenerPersonajes().subscribe({
       next: (data) => {
-      this.personajes = data;
+        this.personajes = data;
 
-      // Buscar el personaje con el código ingresado
-      const personajeEncontrado = this.personajes.find(
-        (p) => p.codigo === codigo
-      );
+        // Buscar el personaje con el código ingresado
+        const personajeEncontrado = this.personajes.find(
+          (p) => p.codigo === codigo
+        );
 
-      if (personajeEncontrado) {
-        this.personajeBuzon = personajeEncontrado;
-        this.nombrePersonaje = this.personajeBuzon.name.toUpperCase();
-        this.buzon.codigo_origen = this.personajeBuzon.codigo;
+        if (personajeEncontrado) {
+          this.personajeBuzon = personajeEncontrado;
+          this.nombrePersonaje = this.personajeBuzon.name.toUpperCase();
+          this.buzon.codigo_origen = this.personajeBuzon.codigo;
 
-        // Si el usuario marcó "Recordar código", lo guardamos
-        if (guardar) {
-          localStorage.setItem('codigo_origen', codigo);
+          // Si el usuario marcó "Recordar código", lo guardamos
+          if (guardar) {
+            localStorage.setItem('codigo_origen', codigo);
+          }
+        } else {
+          alert('Código inválido. Inténtalo de nuevo.');
+          this.solicitarCodigo(); // Volver a pedir el código
         }
-      } else {
-        alert('Código inválido. Inténtalo de nuevo.');
-        this.solicitarCodigo(); // Volver a pedir el código
-      }
       },
       error: () => {
-      this.router.navigate(['/inicio']);
-    }
+        this.router.navigate(['/inicio']);
+      },
     });
   }
 
@@ -119,10 +118,9 @@ export class BuzonPersonalComponent implements OnInit {
   }
 
   cerrarBuzon(): void {
-  localStorage.removeItem('codigo_origen'); // Elimina el código guardado
-  this.router.navigate(['/inicio']); // Redirige a la página de inicio
-}
-
+    localStorage.removeItem('codigo_origen'); // Elimina el código guardado
+    this.router.navigate(['/inicio']); // Redirige a la página de inicio
+  }
 
   openDialog(title: string, message: string) {
     return this.dialog.open(DialogComponent, {

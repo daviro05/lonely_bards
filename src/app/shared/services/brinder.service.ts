@@ -48,4 +48,11 @@ export class BrinderService {
   enviarMensaje(buzon: { codigo_origen: string; codigo_destino: string;  mensaje: string }) {
     return this.http.post<string>(`${this.BASE_URL}/buzon/enviar`, buzon);
   }
+
+  listarMensajes(codigoDestino: string) {
+  return this.http.get<{ id: number; codigo_origen: string; mensaje: string; fecha_envio: string }[]>(
+    `${this.BASE_URL}/buzon/${codigoDestino}`
+  );
+  }
+
 }
