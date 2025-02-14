@@ -13,6 +13,10 @@ export class BrinderService {
 
   constructor(private http: HttpClient) { }
 
+  statusBackend() {
+    return this.http.get<string>(this.BASE_URL+'/ping');
+  }
+
   obtenerPersonajes() {
     return this.http.get<BrinderModel[]>(this.BASE_URL+'/personajes');
   }

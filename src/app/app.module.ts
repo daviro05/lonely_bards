@@ -27,7 +27,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
-import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component'
+import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component';
+import { DialogSimpleComponent } from './dialog-simple/dialog-simple.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dia
     BuzonPersonalComponent,
     ListaBuzonComponent,
     CodigoDialogComponent,
+    DialogSimpleComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dia
     DragDropModule,
     MatCheckboxModule
   ],
+  exports: [DialogSimpleComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

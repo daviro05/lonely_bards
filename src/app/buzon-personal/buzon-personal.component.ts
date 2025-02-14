@@ -55,7 +55,9 @@ export class BuzonPersonalComponent implements OnInit {
   }
 
   validarCodigo(codigo: string, guardar?: boolean): void {
-    this.brinderService.obtenerPersonajes().subscribe((data) => {
+    
+    this.brinderService.obtenerPersonajes().subscribe({
+      next: (data) => {
       this.personajes = data;
 
       // Buscar el personaje con el código ingresado
@@ -76,6 +78,10 @@ export class BuzonPersonalComponent implements OnInit {
         alert('Código inválido. Inténtalo de nuevo.');
         this.solicitarCodigo(); // Volver a pedir el código
       }
+      },
+      error: () => {
+      this.router.navigate(['/inicio']);
+    }
     });
   }
 
