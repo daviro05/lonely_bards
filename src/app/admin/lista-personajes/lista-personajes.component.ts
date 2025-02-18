@@ -34,6 +34,7 @@ export class ListaPersonajesComponent implements OnInit {
     });
   }
 
+
   eliminarPersonaje(id: string): void {
     if (confirm('¿Seguro que quieres eliminar este personaje?')) {
       this.brinderService.borrarPersonaje(id).subscribe(

@@ -1,15 +1,15 @@
 <div class="chat-container">
     <div class="title-container">
-        <h2>BANDEJA DE ENTRADA DE {{nombrePersonaje}}</h2>
+        <h2>BUZÓN COMPLETO</h2>
     </div>
 
     <div *ngIf="mensajes.length === 0" class="sin-mensajes">
-        No tienes mensajes en tu buzón.
+        No hay mensajes en los buzones.
     </div>
 
     <div *ngFor="let mensaje of mensajes" class="mensaje" [class.expandido]="mensaje.expandido" (click)="toggleMensaje(mensaje)">
         <div class="mensaje-header">
-            <span class="codigo-origen">De: Anónimo</span>
+            <span class="codigo-origen">De: {{mensaje.codigo_origen}}</span>
             <small class="fecha">{{ mensaje.fecha_envio | date:'dd/MM/yyyy HH:mm' }}</small>
         </div>
 
@@ -18,12 +18,6 @@
     </div>
 
     <div class="button-container">
-          <button mat-flat-button type="button" class="enviar" (click)="navegar('buzon/inicio')">
-        Escribir mensaje
-      </button>
-        <button mat-flat-button color="warn" class="boton-cerrar" (click)="cerrarBuzon()">
-            Cerrar Buzón
-        </button>
         <button mat-flat-button class="volver" type="button" (click)="navegar('inicio')">
             Volver
         </button>

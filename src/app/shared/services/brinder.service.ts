@@ -45,14 +45,20 @@ export class BrinderService {
     return this.http.post<string>(`${this.BASE_URL}/contacto`, contacto);
   }
 
+  listarMensajesContacto() {
+    return this.http.get<any[]>(`${this.BASE_URL}/contacto`);
+  }
+
   enviarMensaje(buzon: { codigo_origen: string; codigo_destino: string;  mensaje: string }) {
     return this.http.post<string>(`${this.BASE_URL}/buzon/enviar`, buzon);
   }
 
+  listarMensajesBuzon() {
+    return this.http.get<any[]>(`${this.BASE_URL}/buzon/todos`);
+  }
+  
   listarMensajes(codigoDestino: string) {
-  return this.http.get<{ id: number; codigo_origen: string; mensaje: string; fecha_envio: string }[]>(
-    `${this.BASE_URL}/buzon/${codigoDestino}`
-  );
+    return this.http.get<{ id: number; codigo_origen: string; mensaje: string; fecha_envio: string }[]>(`${this.BASE_URL}/buzon/${codigoDestino}`);
   }
 
 }

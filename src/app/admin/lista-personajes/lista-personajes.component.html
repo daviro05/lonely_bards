@@ -1,14 +1,23 @@
 <div class="personajes-container">
-    <h1>LISTA PERSONAJES</h1>
-    <div><p>Totales: {{personajes.length}}</p></div>
-    <div class="opciones">
-    <button mat-flat-button class="nuevo" type="button" (click)="navegar('admin/alta')">
-      + Nuevo
+  <h1>LISTA PERSONAJES</h1>
+  <div class="info-stats">
+    <span>Personajes: {{personajes.length}}</span>
+    <span>Matches: {{personajes.length}}</span>
+  </div>
+  <div class="opciones">
+    <button mat-icon-button class="nuevo" type="button" (click)="navegar('admin/alta')">
+      <mat-icon>person_add</mat-icon>
     </button>
-    <button mat-flat-button class="estadisticas" type="button" (click)="navegar('admin/estadisticas')" disabled>
-      Estadísticas
+    <button mat-icon-button class="stats" type="button" (click)="navegar('admin/estadisticas')" disabled>
+      <mat-icon>insert_chart</mat-icon>
     </button>
-    </div>
+    <button mat-icon-button class="contacto" type="button" (click)="navegar('admin/contacto')">
+      <mat-icon>contact_page</mat-icon>
+    </button>
+    <button mat-icon-button class="buzon" type="button" (click)="navegar('admin/buzon')">
+      <mat-icon>mail</mat-icon>
+    </button>
+  </div>
   <ul>
     <li *ngFor="let personaje of personajes" [ngClass]="getBordeClase(personaje)">
       <img [src]="personaje.image_url" [alt]="personaje.name" class="personaje-img" />

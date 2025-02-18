@@ -29,6 +29,8 @@ import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.componen
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
 import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component';
 import { DialogSimpleComponent } from './dialog/dialog-simple/dialog-simple.component';
+import { ListaContactoComponent } from './admin/lista-contacto/lista-contacto.component';
+import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { DialogSimpleComponent } from './dialog/dialog-simple/dialog-simple.comp
     ListaBuzonComponent,
     CodigoDialogComponent,
     DialogSimpleComponent,
+    ListaContactoComponent,
+    ListaBuzonAdminComponent,
   ],
   imports: [
     BrowserModule,

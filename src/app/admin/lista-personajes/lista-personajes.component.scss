@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.info-stats {
+  display: flex;
+  span {
+    margin: auto;
+  }
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -21,11 +28,10 @@ ul {
   text-align: left;
   margin-left: 10px;
 
-  span{
+  span {
     font-weight: bolder;
   }
 }
-
 
 li {
   display: flex;
@@ -43,15 +49,23 @@ li {
 }
 
 button {
-    border: none;
+  border: none;
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.nuevo{
- border: 1px solid #f7d461;
- background: #f8e091 !important;
+.nuevo {
+  background: #f8e091 !important;
+}
+.stats {
+  background: #f8e091 !important;
+}
+.contacto {
+  background: #f8e091 !important;
+}
+.buzon {
+  background: #f8e091 !important;
 }
 
 .editar {
@@ -68,21 +82,23 @@ button:hover {
   opacity: 0.8;
 }
 
-.opciones{
-    button{
-        margin: 10px;
-        border-radius: 20px;
-    }
-    margin-bottom: 20px;
+.opciones {
+  button {
+    margin: 5px;
+    border-radius: 100px;
+  }
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-h1{
-font-size: 30px; /* Aumenta el tamaño del texto */
+h1 {
+  font-size: 30px; /* Aumenta el tamaño del texto */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
   letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 $bordes: (
@@ -90,7 +106,7 @@ $bordes: (
   azul: #5dade2,
   verde: #52be80,
   amarillo: #f7dc6f,
-  generico: #5dade2
+  generico: #5dade2,
 );
 
 @each $nombre, $color in $bordes {
@@ -98,4 +114,3 @@ $bordes: (
     border: 2px solid $color;
   }
 }
-
