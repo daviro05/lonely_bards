@@ -15,13 +15,13 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
   { path: 'brinder', component: BrinderComponent }, // Ruta específica para "Brinder"
   { path: 'info', component: InfoComponent }, // Ruta específica para "Info"
-  /*{
+  {
     path: 'buzon',
     children: [
       { path: 'inicio', component: BuzonPersonalComponent }, // Ruta específica para "Buzón"
       { path: 'mensajes', component: ListaBuzonComponent }, // Ruta específica para "Mensajes"
     ], 
-  },*/
+  },
   { path: 'contacto', component: ContactoComponent }, // Ruta específica para "Contacto"
   {
     path: 'admin',

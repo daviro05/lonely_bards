@@ -60,7 +60,7 @@ export class BrinderComponent implements OnInit {
         personaje2_name: this.selectedCharacters[1].name,
         ip: sessionStorage.getItem('userId') ?? '',
         message: this.optionalMessage || '',
-        tipo: 'brinder'
+        tipo: 'brinder',
       };
 
       this.brinderService.sendMatch(matchData).subscribe(
@@ -151,15 +151,20 @@ export class BrinderComponent implements OnInit {
 
   getBordeClase(character: any): string {
     switch (character.info_user) {
-      case 'romantico': return 'borde-rojo';
-      case 'amistad': return 'borde-azul';
-      case 'surja': return 'borde-verde';
-      case 'tipo4': return 'borde-amarillo';
-      default: return 'borde-generico';
+      case 'romantico':
+        return 'borde-rojo';
+      case 'amistad':
+        return 'borde-azul';
+      case 'surja':
+        return 'borde-verde';
+      case 'tipo4':
+        return 'borde-amarillo';
+      default:
+        return 'borde-generico';
     }
   }
 
-   mostrarPanelInformativo() {
+  mostrarPanelInformativo() {
     const noMostrarMas = localStorage.getItem('brinder_noMostrarInfo');
     if (!noMostrarMas) {
       this.openInfoDialog();
@@ -167,16 +172,24 @@ export class BrinderComponent implements OnInit {
   }
 
   openInfoDialog() {
-    const dialogRef = this.dialog.open(InfoDialogComponent);
-
-    // Al cerrar el diálogo, actualizamos el estado en el localStorage
-    dialogRef.afterClosed().subscribe(result => {
-      if (result === 'entendido') {
-        localStorage.setItem('brinder_noMostrarInfo', 'true');
-      }
+    this.dialog.open(InfoDialogComponent, {
+      data: {
+        titulo: 'INSTRUCCIONES DE USO',
+        contenido: `
+      <p>Selecciona dos personajes y crea un vínculo entre ellos.</p>
+      <p>Puedes arrastrar y soltar (en PC) o tocar el personaje y hacerlo de nuevo en el cuadro de parejas para seleccionarlo (Móvil).</p>
+      <p>Opcionalmente, puedes añadir un mensaje anónimo (esto es lo interesante).</p>
+      <p>Según el color que tenga cada personaje, tendrá los siguientes intereses:</p>
+      <ul>
+        <li><span class="color-azul">Azul:</span> Amistad</li>
+        <li><span class="color-rojo">Rojo:</span> Romántico</li>
+        <li><span class="color-verde">Verde:</span> Lo que surja</li>
+      </ul>
+    `,
+        claveLocalStorage: 'brinder_noMostrarInfo',
+      },
     });
   }
-
 
   navegar(ruta: string) {
     this.utils.navegar(ruta);

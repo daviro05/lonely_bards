@@ -17,13 +17,18 @@ h1 {
 
 .contacto-info {
   display: block;
-    margin: 25px 0px;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #c2a279;
-    border-radius: 5px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.8);
+  margin: 25px 0px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #c2a279;
+  border-radius: 5px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 form {
@@ -37,7 +42,8 @@ label {
   font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #c2a279;
@@ -65,12 +71,12 @@ button {
   border-radius: 5px;
 }
 
-.guardar{
+.guardar {
   border: 1px solid #f7d461;
   background: #f8e091 !important;
 }
 
-.volver{
-  margin-top:20px;
-  background: none !important
+.volver {
+  margin-top: 20px;
+  background: none !important;
 }

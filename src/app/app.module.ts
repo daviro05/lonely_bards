@@ -28,7 +28,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
 import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component';
-import { DialogSimpleComponent } from './dialog-simple/dialog-simple.component'
+import { DialogSimpleComponent } from './dialog-simple/dialog-simple.component';
 
 @NgModule({
   declarations: [
