@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Utils } from '../shared/utils';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogSimpleComponent } from '../dialog-simple/dialog-simple.component';
+import { DialogSimpleComponent } from '../dialog/dialog-simple/dialog-simple.component';
 import { BrinderService } from '../shared/services/brinder.service';
 
 @Component({
@@ -40,7 +40,8 @@ export class InicioComponent implements OnInit {
       disableClose: true,
       data: {
         titulo: 'Servicio suspendido',
-        mensaje: 'Disculpen las molestias. Estamos trabajando para resolverlo lo antes posible.',
+        mensaje:
+          'Disculpen las molestias. Estamos trabajando para resolverlo lo antes posible.',
         cerrar: '',
       },
     });

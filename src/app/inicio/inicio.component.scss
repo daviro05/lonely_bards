@@ -4,10 +4,11 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   width: 100%;
-  font-family: 'Roboto', serif;
+  font-family: "Roboto", serif;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,12 +41,11 @@ h1 {
 }
 
 button {
-  background-color: #f8e091;
-  border: none;
+  background-color: #ffecad;
+  border: 2px solid #774c00;
   padding: 15px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 10px;
   width: 80%;
   transition: 0.3s;
   text-transform: uppercase;

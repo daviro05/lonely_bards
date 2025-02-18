@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrinderComponent } from './brinder/brinder.component';
 import { AltaPersonajeComponent } from './admin/alta-personaje/alta-personaje.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './inicio/inicio.component';
 import { InfoComponent } from './info/info.component';
 import { ListaPersonajesComponent } from './admin/lista-personajes/lista-personajes.component';
@@ -10,22 +10,24 @@ import { EditarPersonajeComponent } from './admin/editar-personaje/editar-person
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
+import { BackendGuard } from './guards/backend.guard';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
-  { path: 'brinder', component: BrinderComponent }, // Ruta específica para "Brinder"
-  { path: 'info', component: InfoComponent }, // Ruta específica para "Info"
+  { path: 'brinder', component: BrinderComponent, canActivate: [BackendGuard] }, // Ruta específica para "Brinder"
+  { path: 'info', component: InfoComponent, canActivate: [BackendGuard] }, // Ruta específica para "Info"
   {
     path: 'buzon',
+    canActivate: [BackendGuard],
     children: [
       { path: 'inicio', component: BuzonPersonalComponent }, // Ruta específica para "Buzón"
       { path: 'mensajes', component: ListaBuzonComponent }, // Ruta específica para "Mensajes"
     ], 
   },
-  { path: 'contacto', component: ContactoComponent }, // Ruta específica para "Contacto"
+  { path: 'contacto', component: ContactoComponent, canActivate: [BackendGuard] }, // Ruta específica para "Contacto"
   {
     path: 'admin',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, BackendGuard],
     children: [
       { path: '', component: ListaPersonajesComponent }, // Lista de personajes
       { path: 'alta', component: AltaPersonajeComponent }, // Alta de personajes

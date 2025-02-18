@@ -23,12 +23,12 @@ import { InfoComponent } from './info/info.component';
 import { ListaPersonajesComponent } from './admin/lista-personajes/lista-personajes.component';
 import { EditarPersonajeComponent } from './admin/editar-personaje/editar-personaje.component';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
 import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component';
-import { DialogSimpleComponent } from './dialog-simple/dialog-simple.component';
+import { DialogSimpleComponent } from './dialog/dialog-simple/dialog-simple.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { DialogSimpleComponent } from './dialog-simple/dialog-simple.component';
     MatDividerModule,
     MatSelectModule,
     DragDropModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: [DialogSimpleComponent],
   providers: [],
