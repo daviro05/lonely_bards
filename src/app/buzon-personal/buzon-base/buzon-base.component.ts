@@ -2,7 +2,7 @@ import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { BuzonService } from 'src/app/shared/services/buzon.service';
-import { CodigoDialogComponent } from '../codigo-dialog/codigo-dialog.component';
+import { CodigoDialogComponent } from '../../dialog/codigo-dialog/codigo-dialog.component';
 import { Component } from '@angular/core';
 import { InfoDialogComponent } from 'src/app/info-dialog/info-dialog.component';
 
@@ -34,6 +34,7 @@ export abstract class BuzonBaseComponent implements OnInit {
 
     const dialogRef = this.dialog.open(CodigoDialogComponent, {
       disableClose: true,
+      data: { recordar: true },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -65,15 +66,16 @@ export abstract class BuzonBaseComponent implements OnInit {
   }
 
   mostrarPanelInformativo() {
-  if (localStorage.getItem('buzon_noMostrarInfo')) {
-    this.solicitarCodigo();
-    return;
-  }
+    if (localStorage.getItem('buzon_noMostrarInfo')) {
+      this.solicitarCodigo();
+      return;
+    }
 
-  this.dialog.open(InfoDialogComponent, {
-    data: {
-      titulo: 'INSTRUCCIONES DEL BUZÓN',
-      contenido: `
+    this.dialog
+      .open(InfoDialogComponent, {
+        data: {
+          titulo: 'INSTRUCCIONES DEL BUZÓN',
+          contenido: `
         <p>Introduce tu código personal.</p>
         <p>Selecciona un personaje de la lista al que quieras escribir un mensaje privado anónimo.</p>
         <p>El destinatario no sabrá quién lo envía.</p>
@@ -84,11 +86,12 @@ export abstract class BuzonBaseComponent implements OnInit {
           <li><span class="color-verde">Verde:</span> Lo que surja</li>
         </ul>
       `,
-      claveLocalStorage: 'buzon_noMostrarInfo',
-    }
-  }).afterClosed().subscribe(() => this.solicitarCodigo());
-}
-
+          claveLocalStorage: 'buzon_noMostrarInfo',
+        },
+      })
+      .afterClosed()
+      .subscribe(() => this.solicitarCodigo());
+  }
 
   abstract onCodigoValidado(): void;
 }

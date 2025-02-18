@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-codigo-dialog',
@@ -9,8 +9,12 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CodigoDialogComponent {
   codigo: string = '';
   guardarCodigo: boolean = false;
+  recordar: boolean;
+  mostrarPassword: boolean = false;
 
-  constructor(private dialogRef: MatDialogRef<CodigoDialogComponent>) {}
+  constructor(private dialogRef: MatDialogRef<CodigoDialogComponent>,  @Inject(MAT_DIALOG_DATA) public data: { recordar: boolean }) {
+    this.recordar = data.recordar;
+  }
 
   confirmar() {
     this.dialogRef.close({ codigo: this.codigo, guardar: this.guardarCodigo });

@@ -25,6 +25,10 @@ export class BrinderService {
     return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personajes/${id}`);
   }
 
+  obtenerMatches() {
+    return this.http.get<any[]>(`${this.BASE_URL}/matches/todos`);
+  }
+
   sendMatch(matchData: MatchModel) {
     return this.http.post(`${this.BASE_URL}/matches`, matchData);
   }
@@ -56,7 +60,7 @@ export class BrinderService {
   listarMensajesBuzon() {
     return this.http.get<any[]>(`${this.BASE_URL}/buzon/todos`);
   }
-  
+
   listarMensajes(codigoDestino: string) {
     return this.http.get<{ id: number; codigo_origen: string; mensaje: string; fecha_envio: string }[]>(`${this.BASE_URL}/buzon/${codigoDestino}`);
   }

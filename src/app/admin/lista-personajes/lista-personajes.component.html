@@ -2,13 +2,13 @@
   <h1>LISTA PERSONAJES</h1>
   <div class="info-stats">
     <span>Personajes: {{personajes.length}}</span>
-    <span>Matches: {{personajes.length}}</span>
+    <span>Matches: {{matches.length}}</span>
   </div>
   <div class="opciones">
     <button mat-icon-button class="nuevo" type="button" (click)="navegar('admin/alta')">
       <mat-icon>person_add</mat-icon>
     </button>
-    <button mat-icon-button class="stats" type="button" (click)="navegar('admin/estadisticas')" disabled>
+    <button mat-icon-button class="stats" type="button" (click)="navegar('admin/stats')">
       <mat-icon>insert_chart</mat-icon>
     </button>
     <button mat-icon-button class="contacto" type="button" (click)="navegar('admin/contacto')">
@@ -18,6 +18,7 @@
       <mat-icon>mail</mat-icon>
     </button>
   </div>
+
   <ul>
     <li *ngFor="let personaje of personajes" [ngClass]="getBordeClase(personaje)">
       <img [src]="personaje.image_url" [alt]="personaje.name" class="personaje-img" />

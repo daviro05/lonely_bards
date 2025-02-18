@@ -27,10 +27,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BuzonPersonalComponent } from './buzon-personal/buzon-personal.component';
 import { ListaBuzonComponent } from './buzon-personal/lista-buzon/lista-buzon.component';
-import { CodigoDialogComponent } from './buzon-personal/codigo-dialog/codigo-dialog.component';
+import { CodigoDialogComponent } from './dialog/codigo-dialog/codigo-dialog.component';
 import { DialogSimpleComponent } from './dialog/dialog-simple/dialog-simple.component';
 import { ListaContactoComponent } from './admin/lista-contacto/lista-contacto.component';
 import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-admin.component';
+import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-
     DialogSimpleComponent,
     ListaContactoComponent,
     ListaBuzonAdminComponent,
+    EstadisticasComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,7 @@ import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-
     MatDividerModule,
     MatSelectModule,
     DragDropModule,
-    MatCheckboxModule,
+    MatCheckboxModule
   ],
   exports: [DialogSimpleComponent],
   providers: [],
