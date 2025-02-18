@@ -1,6 +1,30 @@
-<div class="graficos-container">
-  <h2>Matches por Personaje</h2>
+<div>
+<!--   <h2>Estadísticas de Matches</h2>
+  <div #chart></div>
+   -->
+<div class="personajes-container">
+  <h1>ESTADÍSTICAS</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Personaje</th>
+        <th>Matches</th>
+        <th>Porcentaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stat of personajeStats">
+        <td>{{ stat.personaje }}</td>
+        <td>{{ stat.matches }}</td>
+        <td>{{ stat.porcentaje }}%</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <h2>Mensajes por Personaje</h2>
-
+  <div class="button-container">
+    <button mat-flat-button type="button" (click)="navegar('admin')">
+      Volver
+    </button>
   </div>
+
+</div>

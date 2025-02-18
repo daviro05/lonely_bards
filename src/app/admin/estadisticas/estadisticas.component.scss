@@ -1,0 +1,33 @@
+.personajes-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+text {
+  font-size: 14px;
+  font-weight: bold;
+  fill: white;
+}
+
+.table {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f2f2f2;
+}

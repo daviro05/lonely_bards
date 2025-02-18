@@ -46,8 +46,6 @@ export class ListaPersonajesComponent implements OnInit {
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
       this.matches = this.matches.filter((match) => match.tipo === 'brinder');
-
-      console.log(this.matches);
     });
   }
 
