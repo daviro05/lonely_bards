@@ -3,6 +3,10 @@
         <h2>BANDEJA DE ENTRADA DE {{nombrePersonaje}}</h2>
     </div>
 
+    <button class="modificar" mat-flat-button (click)="abrirDialogoAlias()">
+      Modificar código de acceso
+    </button>
+
     <div *ngIf="mensajes.length === 0" class="sin-mensajes">
         No tienes mensajes en tu buzón.
     </div>

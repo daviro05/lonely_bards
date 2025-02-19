@@ -98,11 +98,11 @@ export class ListaPersonajesComponent implements OnInit {
     if (ruta === 'admin/buzon') {
       const dialogRef = this.dialog.open(CodigoDialogComponent, {
         disableClose: true,
-        data: {recordar: false}
+        data: {recordar: false, tipo: 'codigo'}
       });
 
       dialogRef.afterClosed().subscribe((result) => {
-        if (result && result.codigo === 'abrakadabra') {
+        if (result && result.valor === 'abrakadabra') {
           this.router.navigate(['/admin/buzon']);
         } else {
           this.router.navigate(['/admin']);

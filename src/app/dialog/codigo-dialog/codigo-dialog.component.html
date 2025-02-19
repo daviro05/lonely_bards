@@ -1,22 +1,24 @@
-<h2 mat-dialog-title class="titulo-dialogo">Introduce tu código</h2>
+<h2 mat-dialog-title class="titulo-dialogo">
+  {{ esCodigo ? 'Introduce tu código' : 'Modificar Código' }}
+</h2>
 
 <mat-dialog-content class="contenido-dialogo">
-  <mat-form-field appearance="outline" class="campo-codigo">
-    <mat-label>Código</mat-label>
-    <input matInput [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="codigo" />
-    <button mat-icon-button matSuffix (click)="mostrarPassword = !mostrarPassword">
+  <mat-form-field appearance="outline" class="campo-valor">
+    <mat-label>{{ esCodigo ? 'Código' : 'Nuevo Código' }}</mat-label>
+    <input matInput [type]="esCodigo && !mostrarPassword ? 'password' : 'text'" [(ngModel)]="valor" />
+    <button *ngIf="esCodigo" mat-icon-button matSuffix (click)="mostrarPassword = !mostrarPassword">
       <mat-icon>{{ mostrarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
   </mat-form-field>
 
-  <mat-checkbox class="checkbox-codigo" [(ngModel)]="guardarCodigo" *ngIf="recordar">
+  <mat-checkbox class="checkbox-codigo" [(ngModel)]="guardarValor" *ngIf="recordar && esCodigo">
     Recordar código
   </mat-checkbox>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end" class="acciones-dialogo">
   <button mat-button class="boton-cancelar" (click)="cancelar()">Cancelar</button>
-  <button mat-flat-button class="boton-confirmar" [disabled]="!codigo" (click)="confirmar()">
+  <button mat-flat-button class="boton-confirmar" [disabled]="!valor.trim()" (click)="confirmar()">
     Confirmar
   </button>
 </mat-dialog-actions>

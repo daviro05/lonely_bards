@@ -5,6 +5,8 @@ import { BuzonBaseComponent } from './buzon-base/buzon-base.component';
 import { BuzonService } from '../shared/services/buzon.service';
 import { Utils } from '../shared/utils';
 import { DialogComponent } from '../dialog/dialog.component';
+import { BrinderService } from '../shared/services/brinder.service';
+import { CodigoDialogComponent } from '../dialog/codigo-dialog/codigo-dialog.component';
 
 @Component({
   selector: 'app-buzon-personal',
@@ -35,7 +37,10 @@ export class BuzonPersonalComponent extends BuzonBaseComponent {
   enviarMensaje(): void {
     if (this.buzon.codigo_destino && this.buzon.mensaje) {
       this.buzonService.enviarMensaje(this.buzon).subscribe(() => {
-        this.openDialog('Mensaje enviado', 'Tu mensaje anónimo se ha enviado correctamente.');
+        this.openDialog(
+          'Mensaje enviado',
+          'Tu mensaje anónimo se ha enviado correctamente.'
+        );
         this.buzon.mensaje = '';
         this.buzon.codigo_destino = '';
       });

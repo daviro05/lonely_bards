@@ -11,28 +11,14 @@
     <label for="nombre">Destinatario</label>
     <mat-form-field>
       <mat-label>Elige un personaje</mat-label>
-      <mat-select
-        id="nombre"
-        [(ngModel)]="buzon.codigo_destino"
-        name="codigo_destino"
-        required
-      >
-        <mat-option
-          [ngClass]="getBordeClase(personaje)"
-          *ngFor="let personaje of personajes"
-          [value]="personaje.codigo"
-          >{{ personaje.name }}</mat-option
-        >
+      <mat-select id="nombre" [(ngModel)]="buzon.codigo_destino" name="codigo_destino" required>
+        <mat-option [ngClass]="getBordeClase(personaje)" *ngFor="let personaje of personajes"
+          [value]="personaje.codigo">{{ personaje.name }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <label for="mensaje">Mensaje</label>
-    <textarea
-      id="mensaje"
-      [(ngModel)]="buzon.mensaje"
-      name="mensaje"
-      required
-    ></textarea>
+    <textarea id="mensaje" [(ngModel)]="buzon.mensaje" name="mensaje" required></textarea>
 
     <div class="button-container">
       <button mat-flat-button type="submit" class="guardar" [disabled]="!buzon.codigo_destino || !buzon.mensaje">
@@ -40,7 +26,7 @@
       </button>
       <button mat-flat-button color="warn" class="boton-cerrar" (click)="cerrarBuzon()">
         Cerrar Buzón
-      </button>    
+      </button>
       <button mat-flat-button class="volver" type="button" (click)="navegar('buzon/mensajes')">
         Volver
       </button>

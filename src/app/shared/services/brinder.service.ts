@@ -65,4 +65,9 @@ export class BrinderService {
     return this.http.get<{ id: number; codigo_origen: string; mensaje: string; fecha_envio: string }[]>(`${this.BASE_URL}/buzon/${codigoDestino}`);
   }
 
+  actualizarAlias(codigo: string, alias: string) {
+    return this.http.post<string>(`${this.BASE_URL}/actualizar-alias`, { codigo, alias });
+  }
+
+
 }
