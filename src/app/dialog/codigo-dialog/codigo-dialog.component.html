@@ -5,8 +5,8 @@
 <mat-dialog-content class="contenido-dialogo">
   <mat-form-field appearance="outline" class="campo-valor">
     <mat-label>{{ esCodigo ? 'Código' : 'Nuevo Código' }}</mat-label>
-    <input matInput [type]="esCodigo && !mostrarPassword ? 'password' : 'text'" [(ngModel)]="valor" />
-    <button *ngIf="esCodigo" mat-icon-button matSuffix (click)="mostrarPassword = !mostrarPassword">
+    <input matInput [type]="!mostrarPassword ? 'password' : 'text'" [(ngModel)]="valor" />
+    <button mat-icon-button matSuffix (click)="mostrarPassword = !mostrarPassword">
       <mat-icon>{{ mostrarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
     </button>
   </mat-form-field>
