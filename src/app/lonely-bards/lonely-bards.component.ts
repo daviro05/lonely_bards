@@ -8,11 +8,11 @@ import { Utils } from '../shared/utils';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
 @Component({
-  selector: 'app-brinder',
-  templateUrl: './brinder.component.html',
-  styleUrls: ['./brinder.component.scss'],
+  selector: 'app-lonely-bards',
+  templateUrl: './lonely-bards.component.html',
+  styleUrls: ['./lonely-bards.component.scss'],
 })
-export class BrinderComponent implements OnInit {
+export class LonelyBardsComponent implements OnInit {
   utils: Utils;
   characters: any[] = []; // Ahora este arreglo se llenará con los personajes desde el backend.
   selectedCharacters: any[] = [null, null];

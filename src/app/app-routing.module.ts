@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrinderComponent } from './brinder/brinder.component';
+import { LonelyBardsComponent } from './lonely-bards/lonely-bards.component';
 import { AltaPersonajeComponent } from './admin/alta-personaje/alta-personaje.component';
 import { AuthGuard } from './guards/auth.guard';
 import { InicioComponent } from './inicio/inicio.component';
@@ -17,7 +17,7 @@ import { EstadisticasComponent } from './admin/estadisticas/estadisticas.compone
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
-  { path: 'brinder', component: BrinderComponent, canActivate: [BackendGuard] }, // Ruta específica para "Brinder"
+  { path: 'brinder', component: LonelyBardsComponent, canActivate: [BackendGuard] }, // Ruta específica para "Brinder"
   { path: 'info', component: InfoComponent, canActivate: [BackendGuard] }, // Ruta específica para "Info"
   {
     path: 'buzon',

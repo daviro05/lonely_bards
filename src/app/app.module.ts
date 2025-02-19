@@ -14,7 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
-import { BrinderComponent } from './brinder/brinder.component';
+import { LonelyBardsComponent } from './lonely-bards/lonely-bards.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AltaPersonajeComponent } from './admin/alta-personaje/alta-personaje.component';
@@ -37,7 +37,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 @NgModule({
   declarations: [
     AppComponent,
-    BrinderComponent,
+    LonelyBardsComponent,
     DialogComponent,
     AltaPersonajeComponent,
     InicioComponent,
