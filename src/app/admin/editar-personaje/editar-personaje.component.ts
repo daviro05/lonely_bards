@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { BrinderModel } from 'src/app/shared/brinder.model';
 import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
@@ -13,6 +14,7 @@ import { Utils } from 'src/app/shared/utils';
 })
 export class EditarPersonajeComponent {
   personaje!: BrinderModel;
+  texto: string = '';
   utils: Utils;
 
   constructor(
@@ -20,6 +22,7 @@ export class EditarPersonajeComponent {
     private brinderService: BrinderService,
     private router: Router,
     private dialog: MatDialog,
+    private clipboard: Clipboard
   ) {
     this.utils = new Utils(this.router);
   }
@@ -35,32 +38,43 @@ export class EditarPersonajeComponent {
 
   guardarCambios(): void {
     if (this.personaje.id) {
-      this.brinderService.updatePersonaje(this.personaje.id, this.personaje)
-        .subscribe(() => {
-          const dialogRef = this.openDialog('Edición correcta', 'Personaje editado con éxito');
-          dialogRef.afterClosed().subscribe(() => {
-          this.navegar('admin');
-          });
-        },
-        (error) => {
-        console.error('Error al editar al personaje:', error);
-        this.openDialog(
-          'Error',
-          'Hubo un error al editar al personaje. Contacta con el Centurión.'
+      this.brinderService
+        .updatePersonaje(this.personaje.id, this.personaje)
+        .subscribe(
+          () => {
+            const dialogRef = this.openDialog(
+              'Edición correcta',
+              'Personaje editado con éxito'
+            );
+            dialogRef.afterClosed().subscribe(() => {
+              this.navegar('admin');
+            });
+          },
+          (error) => {
+            console.error('Error al editar al personaje:', error);
+            this.openDialog(
+              'Error',
+              'Hubo un error al editar al personaje. Contacta con el Centurión.'
+            );
+          }
         );
-      });
     }
   }
 
-    openDialog(title: string, message: string) {
-      return this.dialog.open(DialogComponent, {
-        data: {
-          title: title,
-          message: message,
-        },
-      });
-    }
+  openDialog(title: string, message: string) {
+    return this.dialog.open(DialogComponent, {
+      data: {
+        title: title,
+        message: message,
+      },
+    });
+  }
 
+  copiarAlPortapapeles(): void {
+    this.clipboard.copy(this.personaje.codigo);
+    alert('Código copiado al portapapeles');
+  }
+  
   navegar(ruta: string) {
     this.utils.navegar(ruta);
   }

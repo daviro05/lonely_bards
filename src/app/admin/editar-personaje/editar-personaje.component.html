@@ -10,6 +10,16 @@
     <label>Información:</label>
     <textarea [(ngModel)]="personaje.info_user" name="info_user"></textarea>
 
+    <label>Código personal:</label>
+    <div class="input-group">
+      <input matInput type="text" [(ngModel)]="personaje.codigo" name="codigo" 
+        readonly />
+      <button mat-flac-button type="button" mat-icon-button (click)="copiarAlPortapapeles()">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </div>
+
+
     <label>Imagen:</label>
     <input type="text" [(ngModel)]="personaje.image_url" name="image_url" required />
     <br>

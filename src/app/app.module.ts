@@ -32,6 +32,7 @@ import { DialogSimpleComponent } from './dialog/dialog-simple/dialog-simple.comp
 import { ListaContactoComponent } from './admin/lista-contacto/lista-contacto.component';
 import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-admin.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { EstadisticasComponent } from './admin/estadisticas/estadisticas.compone
     MatDividerModule,
     MatSelectModule,
     DragDropModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ClipboardModule,
   ],
   exports: [DialogSimpleComponent],
   providers: [],
