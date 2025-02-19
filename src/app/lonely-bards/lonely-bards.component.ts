@@ -41,7 +41,10 @@ export class LonelyBardsComponent implements OnInit {
   loadCharacters() {
     this.brinderService.obtenerPersonajes().subscribe(
       (data) => {
-        this.characters = data; // Asignamos los personajes obtenidos al arreglo characters
+        this.characters = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
+        this.characters = this.characters.filter(
+          (character) => character.tipo === 'lonely'
+        );
       },
       (error) => {
         console.error('Error al cargar los personajes:', error);
@@ -60,7 +63,7 @@ export class LonelyBardsComponent implements OnInit {
         personaje2_name: this.selectedCharacters[1].name,
         ip: sessionStorage.getItem('userId') ?? '',
         message: this.optionalMessage || '',
-        tipo: 'brinder',
+        tipo: 'lonely',
       };
 
       this.brinderService.sendMatch(matchData).subscribe(

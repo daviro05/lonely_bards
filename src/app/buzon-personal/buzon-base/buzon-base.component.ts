@@ -59,7 +59,7 @@ export abstract class BuzonBaseComponent implements OnInit {
       },
       error: () => {
         this.openDialog('Error', 'Código o alias inválido.');
-        localStorage.removeItem('codigo_origen');
+        localStorage.removeItem('codigo_lonely');
         this.router.navigate(['/inicio']);
       },
     });

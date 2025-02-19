@@ -35,7 +35,7 @@ export class ListaPersonajesComponent implements OnInit {
     this.lonelyBardsService.obtenerPersonajes().subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
       this.personajes = this.personajes.filter(
-        (personaje) => personaje.tipo === 'brinder'
+        (personaje) => personaje.tipo === 'lonely'
       );
     });
   }
@@ -45,7 +45,7 @@ export class ListaPersonajesComponent implements OnInit {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
-      this.matches = this.matches.filter((match) => match.tipo === 'brinder');
+      this.matches = this.matches.filter((match) => match.tipo === 'lonely');
     });
   }
 

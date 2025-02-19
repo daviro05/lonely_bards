@@ -42,7 +42,7 @@ export class BuzonService {
   }
 
   solicitarCodigo(): string | null {
-    return localStorage.getItem('codigo_origen');
+    return localStorage.getItem('codigo_lonely');
   }
 
   validarCodigo(
@@ -65,7 +65,7 @@ export class BuzonService {
             this.aliasPersonaje = personajeEncontrado.alias;
 
             if (guardar) {
-              localStorage.setItem('codigo_origen', this.codigo);
+              localStorage.setItem('codigo_lonely', this.codigo);
             }
 
             observer.next({
@@ -96,6 +96,6 @@ export class BuzonService {
   }
 
   cerrarBuzon(): void {
-    localStorage.removeItem('codigo_origen');
+    localStorage.removeItem('codigo_lonely');
   }
 }

@@ -15,7 +15,7 @@ export class AltaPersonajeComponent {
   utils: Utils;
   nombre: string = '';
   info_user: string = '';
-  tipo: string = 'lonelybards';
+  tipo: string = 'lonely';
   imagen: File | null = null;
 
   constructor(
