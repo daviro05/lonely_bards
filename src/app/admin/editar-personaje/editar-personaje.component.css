@@ -14,6 +14,7 @@ h1 {
   letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
   padding: 10px;
   margin-top: 40px;
+    font-family: 'MedievalSharp'
 }
 
 form {

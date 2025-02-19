@@ -71,7 +71,7 @@ export abstract class BuzonBaseComponent implements OnInit {
   }
 
   mostrarPanelInformativo() {
-    if (localStorage.getItem('buzon_noMostrarInfo')) {
+    if (localStorage.getItem('buzon_lonely_info')) {
       this.solicitarCodigo();
       return;
     }
@@ -91,7 +91,7 @@ export abstract class BuzonBaseComponent implements OnInit {
           <li><span class="color-verde">Verde:</span> Lo que surja</li>
         </ul>
       `,
-          claveLocalStorage: 'buzon_noMostrarInfo',
+          claveLocalStorage: 'buzon_lonely_info',
         },
       })
       .afterClosed()

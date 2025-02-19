@@ -165,7 +165,7 @@ export class LonelyBardsComponent implements OnInit {
   }
 
   mostrarPanelInformativo() {
-    const noMostrarMas = localStorage.getItem('brinder_noMostrarInfo');
+    const noMostrarMas = localStorage.getItem('lonelybards_noMostrarInfo');
     if (!noMostrarMas) {
       this.openInfoDialog();
     }
@@ -186,7 +186,7 @@ export class LonelyBardsComponent implements OnInit {
         <li><span class="color-verde">Verde:</span> Lo que surja</li>
       </ul>
     `,
-        claveLocalStorage: 'brinder_noMostrarInfo',
+        claveLocalStorage: 'lonelybards_noMostrarInfo',
       },
     });
   }

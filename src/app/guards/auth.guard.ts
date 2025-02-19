@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
- private PASSWORD_KEY = 'auth_password';
+ private PASSWORD_KEY = 'auth_lonely_password';
 
   constructor(private router: Router) {}
 
@@ -18,14 +18,14 @@ export class AuthGuard implements CanActivate {
     const savedPassword = localStorage.getItem(this.PASSWORD_KEY);
 
     // Si ya ingresó la contraseña correctamente antes, permitir el acceso
-    if (savedPassword === 'zorronegro33') {
+    if (savedPassword === 'zorroybufon33') {
       return true;
     }
 
     // Si no ha ingresado, pedir la contraseña
     const password = prompt('Ingresa contraseña');
     
-    if (password === 'zorronegro33') {
+    if (password === 'zorroybufon33') {
       localStorage.setItem(this.PASSWORD_KEY, password);  // Guardar en localStorage
       return true;
     } else {
