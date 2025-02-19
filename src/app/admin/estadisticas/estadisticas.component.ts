@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as d3 from 'd3';
 import { BrinderModel } from 'src/app/shared/brinder.model';
-import { BrinderService } from 'src/app/shared/services/brinder.service';
+import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -20,7 +20,7 @@ export class EstadisticasComponent implements OnInit {
 
   modoVista: 'estadisticas' | 'mensajes' = 'estadisticas';
 
-  constructor(private brinderService: BrinderService, private router: Router) {
+  constructor(private lonelyBardsService: LonelyBardsService, private router: Router) {
     this.utils = new Utils(this.router);
   }
 
@@ -30,7 +30,7 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarMatches(): void {
-    this.brinderService.obtenerMatches().subscribe((data) => {
+    this.lonelyBardsService.obtenerMatches().subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
@@ -43,7 +43,7 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.brinderService.obtenerPersonajes().subscribe((data) => {
+    this.lonelyBardsService.obtenerPersonajes().subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
       this.personajes = this.personajes.filter(
         (personaje) => personaje.tipo === 'brinder'

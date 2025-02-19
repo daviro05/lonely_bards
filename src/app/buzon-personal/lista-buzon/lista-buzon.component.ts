@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { BuzonService } from '../../shared/services/buzon.service';
 import { BuzonBaseComponent } from '../buzon-base/buzon-base.component';
 import { Utils } from 'src/app/shared/utils';
 import { CodigoDialogComponent } from 'src/app/dialog/codigo-dialog/codigo-dialog.component';
-import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
+import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-buzon',
@@ -22,7 +22,7 @@ export class ListaBuzonComponent extends BuzonBaseComponent implements OnInit {
     protected override buzonService: BuzonService,
     protected override router: Router,
     protected override dialog: MatDialog,
-    protected brinderService: BrinderService
+    protected lonelyBardsService: LonelyBardsService
   ) {
     super(buzonService, router, dialog);
     this.utils = new Utils(this.router);
@@ -57,7 +57,7 @@ export class ListaBuzonComponent extends BuzonBaseComponent implements OnInit {
   actualizarAlias(nuevoAlias: string): void {
 
     console.log(this.codigo!, nuevoAlias)
-    this.brinderService
+    this.lonelyBardsService
       .actualizarAlias(this.codigo!, nuevoAlias)
       .subscribe({
         next: () => {

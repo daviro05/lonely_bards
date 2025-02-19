@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { BrinderService } from '../shared/services/brinder.service';
+import { LonelyBardsService } from '../shared/services/lonely-bards.service';
 import { Router } from '@angular/router';
 import { Utils } from '../shared/utils';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
@@ -25,7 +25,7 @@ export class LonelyBardsComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
-    private brinderService: BrinderService,
+    private brinderService: LonelyBardsService,
     private router: Router
   ) {
     this.utils = new Utils(this.router);

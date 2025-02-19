@@ -1,4 +1,4 @@
-import { BrinderModel } from './../brinder.model';
+import { BrinderModel } from '../brinder.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
@@ -7,7 +7,7 @@ import { MatchModel } from '../match.model';
 @Injectable({
   providedIn: 'root'
 })
-export class BrinderService {
+export class LonelyBardsService {
 
   BASE_URL = environment.BASE_URL;
 

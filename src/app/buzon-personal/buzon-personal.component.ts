@@ -5,7 +5,7 @@ import { BuzonBaseComponent } from './buzon-base/buzon-base.component';
 import { BuzonService } from '../shared/services/buzon.service';
 import { Utils } from '../shared/utils';
 import { DialogComponent } from '../dialog/dialog.component';
-import { BrinderService } from '../shared/services/brinder.service';
+import { LonelyBardsService } from '../shared/services/lonely-bards.service';
 import { CodigoDialogComponent } from '../dialog/codigo-dialog/codigo-dialog.component';
 
 @Component({

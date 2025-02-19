@@ -5,7 +5,7 @@ import { CodigoDialogComponent } from 'src/app/dialog/codigo-dialog/codigo-dialo
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { BrinderModel } from 'src/app/shared/brinder.model';
 import { MatchModel } from 'src/app/shared/match.model';
-import { BrinderService } from 'src/app/shared/services/brinder.service';
+import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -19,7 +19,7 @@ export class ListaPersonajesComponent implements OnInit {
   utils: Utils;
 
   constructor(
-    private brinderService: BrinderService,
+    private lonelyBardsService: LonelyBardsService,
     private router: Router,
     private dialog: MatDialog
   ) {
@@ -32,7 +32,7 @@ export class ListaPersonajesComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.brinderService.obtenerPersonajes().subscribe((data) => {
+    this.lonelyBardsService.obtenerPersonajes().subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
       this.personajes = this.personajes.filter(
         (personaje) => personaje.tipo === 'brinder'
@@ -41,7 +41,7 @@ export class ListaPersonajesComponent implements OnInit {
   }
 
   cargarMatches(): void {
-    this.brinderService.obtenerMatches().subscribe((data) => {
+    this.lonelyBardsService.obtenerMatches().subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
@@ -51,7 +51,7 @@ export class ListaPersonajesComponent implements OnInit {
 
   eliminarPersonaje(id: string): void {
     if (confirm('¿Seguro que quieres eliminar este personaje?')) {
-      this.brinderService.borrarPersonaje(id).subscribe(
+      this.lonelyBardsService.borrarPersonaje(id).subscribe(
         () => {
           this.personajes = this.personajes.filter((p) => p.id !== id);
         },

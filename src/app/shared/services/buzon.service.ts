@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BrinderService } from './brinder.service';
+import { LonelyBardsService } from './lonely-bards.service';
 import { BrinderModel } from '../brinder.model';
 import { Observable, of, tap } from 'rxjs';
 @Injectable({
@@ -11,7 +11,7 @@ export class BuzonService {
   private nombrePersonaje!: string;
   private aliasPersonaje!: string;
 
-  constructor(private brinderService: BrinderService) {}
+  constructor(private brinderService: LonelyBardsService) {}
 
   obtenerPersonajes(forceRefresh: boolean = false): Observable<BrinderModel[]> {
     // Si forceRefresh es true, ignoramos la caché y volvemos a llamar al servidor
