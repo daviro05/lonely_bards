@@ -24,10 +24,10 @@ button:not(:disabled).guardar {
 }
 
 h1 {
-  font-size: 40px; /* Aumenta el tamaño del texto */
+  font-size: 30px; /* Aumenta el tamaño del texto */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
   letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 40px;
 }

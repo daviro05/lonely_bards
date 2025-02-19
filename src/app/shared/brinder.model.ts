@@ -7,6 +7,7 @@ export class BrinderModel {
     public info_user: string,
     public activo: string,
     public codigo: string,
+    public alias: string,
     public id?: string,
   ) { }
 
