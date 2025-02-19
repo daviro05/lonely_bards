@@ -1,30 +1,61 @@
 <div>
-<!--   <h2>Estadísticas de Matches</h2>
+  <!--   <h2>Estadísticas de Matches</h2>
   <div #chart></div>
    -->
-<div class="personajes-container">
-  <h1>ESTADÍSTICAS</h1>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Personaje</th>
-        <th>Matches</th>
-        <th>Porcentaje</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stat of personajeStats">
-        <td>{{ stat.personaje }}</td>
-        <td>{{ stat.matches }}</td>
-        <td>{{ stat.porcentaje }}%</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="personajes-container">
+    <h1>ESTADÍSTICAS</h1>
 
-  <div class="button-container">
-    <button mat-flat-button type="button" (click)="navegar('admin')">
-      Volver
-    </button>
+    <div class="opciones">
+      <button mat-icon-button class="nuevo" type="button" (click)="cambiarVista('estadisticas')">
+        <mat-icon>insert_chart</mat-icon>
+      </button>
+      <button mat-icon-button class="stats" type="button" (click)="cambiarVista('mensajes')">
+        <mat-icon>message</mat-icon>
+      </button>
+    </div>
+
+    <!-- Vista de estadísticas -->
+    <table *ngIf="modoVista === 'estadisticas'" class="table table-bordered">
+      <thead>
+        <tr>
+          <th (click)="ordenarPor(personajeStats, 'personaje')">Personaje</th>
+          <th (click)="ordenarPor(personajeStats, 'matches')">Matches</th>
+          <th (click)="ordenarPor(personajeStats, 'porcentaje')">Porcentaje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stat of personajeStats">
+          <td>{{ stat.personaje }}</td>
+          <td>{{ stat.matches }}</td>
+          <td>{{ stat.porcentaje }}%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Vista de mensajes -->
+    <table *ngIf="modoVista === 'mensajes'" class="table table-bordered">
+      <thead>
+        <tr>
+          <th (click)="ordenarPor(matches, 'personaje1_name')">P1</th>
+          <th (click)="ordenarPor(matches, 'personaje2_name')">P2</th>
+          <th (click)="ordenarPor(matches, 'mensaje')">Mensaje</th>
+          <th (click)="ordenarPor(matches, 'created_at')">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let match of matches">
+          <td>{{ match.personaje1_name }}</td>
+          <td>{{ match.personaje2_name }}</td>
+          <td>{{ match.mensaje || '-' }}</td>
+          <td><small class="fecha">{{ match.created_at | date:'dd/MM/yy HH:mm' }}</small></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="button-container">
+      <button mat-flat-button type="button" (click)="navegar('admin')">
+        Volver
+      </button>
+    </div>
   </div>
-
-</div>

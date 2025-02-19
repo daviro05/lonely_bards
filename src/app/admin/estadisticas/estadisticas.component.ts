@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as d3 from 'd3';
+import { BrinderModel } from 'src/app/shared/brinder.model';
 import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
 
@@ -11,16 +12,20 @@ import { Utils } from 'src/app/shared/utils';
 })
 export class EstadisticasComponent implements OnInit {
   matches: any[] = [];
+  personajes: BrinderModel[] = [];
   personajeStats: any[] = [];
   totalMatches: number = 0;
   @ViewChild('chart') private chartContainer: ElementRef | undefined;
   utils: Utils;
+
+  modoVista: 'estadisticas' | 'mensajes' = 'estadisticas';
 
   constructor(private brinderService: BrinderService, private router: Router) {
     this.utils = new Utils(this.router);
   }
 
   ngOnInit(): void {
+    this.cargarPersonajes();
     this.cargarMatches();
   }
 
@@ -30,9 +35,19 @@ export class EstadisticasComponent implements OnInit {
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
       this.matches = this.matches.filter((match) => match.tipo === 'brinder');
+      console.log(this.matches);
       this.totalMatches = this.matches.length; // Total de matches
       this.generarGrafico();
       this.calcularEstadisticasPersonajes();
+    });
+  }
+
+  cargarPersonajes(): void {
+    this.brinderService.obtenerPersonajes().subscribe((data) => {
+      this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
+      this.personajes = this.personajes.filter(
+        (personaje) => personaje.tipo === 'brinder'
+      );
     });
   }
 
@@ -97,6 +112,11 @@ export class EstadisticasComponent implements OnInit {
   calcularEstadisticasPersonajes(): void {
     const personajeCounts: { [key: string]: number } = {};
 
+    // Inicializar todos los personajes con 0 matches
+    this.personajes.forEach((personaje) => {
+      personajeCounts[personaje.name] = 0;
+    });
+
     // Contar los matches por personaje
     this.matches.forEach((match) => {
       personajeCounts[match.personaje1_name] =
@@ -106,11 +126,12 @@ export class EstadisticasComponent implements OnInit {
     });
 
     // Crear un array con las estadísticas de cada personaje
-    this.personajeStats = Object.keys(personajeCounts).map((personaje) => {
-      const count = personajeCounts[personaje];
-      const porcentaje = (count / this.totalMatches) * 100;
+    this.personajeStats = this.personajes.map((personaje) => {
+      const count = personajeCounts[personaje.name] || 0;
+      const porcentaje =
+        this.totalMatches > 0 ? (count / this.totalMatches) * 100 : 0;
       return {
-        personaje,
+        personaje: personaje.name,
         matches: count,
         porcentaje: porcentaje.toFixed(2),
       };
@@ -118,6 +139,42 @@ export class EstadisticasComponent implements OnInit {
 
     // Ordenar personajes por cantidad de matches (descendente)
     this.personajeStats.sort((a, b) => b.matches - a.matches);
+  }
+
+  cambiarVista(modo: 'estadisticas' | 'mensajes'): void {
+    this.modoVista = modo;
+  }
+
+  ordenActual: string = ''; // Campo actual de ordenación
+  ordenAscendente: boolean = true; // Por defecto, orden ascendente
+
+  ordenarPor(lista: any[], campo: string): void {
+    if (this.ordenActual === campo) {
+      this.ordenAscendente = !this.ordenAscendente; // Alternar orden
+    } else {
+      this.ordenActual = campo;
+      this.ordenAscendente = true; // Nuevo campo, se empieza en ascendente
+    }
+
+    lista.sort((a, b) => {
+      let valorA = a[campo];
+      let valorB = b[campo];
+
+      if (campo === 'created_at') {
+        // Si es una fecha, convertir a timestamp para ordenar correctamente
+        valorA = new Date(valorA).getTime();
+        valorB = new Date(valorB).getTime();
+        return this.ordenAscendente ? valorA - valorB : valorB - valorA;
+      } else if (!isNaN(parseFloat(valorA)) && !isNaN(parseFloat(valorB))) {
+        // Si son números, comparar numéricamente
+        return this.ordenAscendente ? valorA - valorB : valorB - valorA;
+      } else {
+        // Si son strings, usar localeCompare con "base" para ignorar tildes
+        return this.ordenAscendente
+          ? valorA.localeCompare(valorB, 'es', { sensitivity: 'base' })
+          : valorB.localeCompare(valorA, 'es', { sensitivity: 'base' });
+      }
+    });
   }
 
   navegar(ruta: string) {
