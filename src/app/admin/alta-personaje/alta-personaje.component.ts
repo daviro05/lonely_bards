@@ -55,7 +55,7 @@ export class AltaPersonajeComponent {
         this.nombre = '';
         this.imagen = null;
         dialogRef.afterClosed().subscribe(() => {
-          this.navegar('alta');
+          this.navegar('admin/alta');
         });
       },
       (error) => {
