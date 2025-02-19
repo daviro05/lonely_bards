@@ -8,7 +8,7 @@
     }
   },
   "projects": {
-    "brinder": {
+    "lonelybards": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/brinder",
+            "outputPath": "dist/lonelybards",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "brinder:build:production"
+              "browserTarget": "lonelybards:build:production"
             },
             "development": {
-              "browserTarget": "brinder:build:development"
+              "browserTarget": "lonelybards:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "brinder:build"
+            "browserTarget": "lonelybards:build"
           }
         },
         "test": {

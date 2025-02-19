@@ -15,7 +15,7 @@ export class AltaPersonajeComponent {
   utils: Utils;
   nombre: string = '';
   info_user: string = '';
-  tipo: string = 'brinder';
+  tipo: string = 'lonelybards';
   imagen: File | null = null;
 
   constructor(
@@ -62,7 +62,7 @@ export class AltaPersonajeComponent {
         console.error('Error al registrar al personaje:', error);
         this.openDialog(
           'Error',
-          'Hubo un error al registrar al personaje. Contacta con el Centurión.'
+          'Hubo un error al registrar al personaje. Contacta con el Zorro Negro.'
         );
       }
     );

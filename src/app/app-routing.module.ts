@@ -17,7 +17,7 @@ import { EstadisticasComponent } from './admin/estadisticas/estadisticas.compone
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent }, // Ruta específica para "Inicio"
-  { path: 'brinder', component: LonelyBardsComponent, canActivate: [BackendGuard] }, // Ruta específica para "Brinder"
+  { path: 'lonelybards', component: LonelyBardsComponent, canActivate: [BackendGuard] }, // Ruta específica para "Brinder"
   { path: 'info', component: InfoComponent, canActivate: [BackendGuard] }, // Ruta específica para "Info"
   {
     path: 'buzon',
