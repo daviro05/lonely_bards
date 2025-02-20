@@ -17,6 +17,7 @@ export class ListaPersonajesComponent implements OnInit {
   personajes: BrinderModel[] = [];
   matches: MatchModel[] = [];
   utils: Utils;
+  tipo: string = 'lonely';
 
   constructor(
     private lonelyBardsService: LonelyBardsService,
@@ -32,20 +33,16 @@ export class ListaPersonajesComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.lonelyBardsService.obtenerPersonajes().subscribe((data) => {
+    this.lonelyBardsService.obtenerPersonajes(this.tipo).subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
-      this.personajes = this.personajes.filter(
-        (personaje) => personaje.tipo === 'lonely'
-      );
     });
   }
 
   cargarMatches(): void {
-    this.lonelyBardsService.obtenerMatches().subscribe((data) => {
+    this.lonelyBardsService.obtenerMatches(this.tipo).subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
-      this.matches = this.matches.filter((match) => match.tipo === 'lonely');
     });
   }
 
@@ -98,7 +95,7 @@ export class ListaPersonajesComponent implements OnInit {
     if (ruta === 'admin/buzon') {
       const dialogRef = this.dialog.open(CodigoDialogComponent, {
         disableClose: true,
-        data: {recordar: false, tipo: 'codigo'}
+        data: { recordar: false, tipo: 'codigo' },
       });
 
       dialogRef.afterClosed().subscribe((result) => {

@@ -17,16 +17,16 @@ export class LonelyBardsService {
     return this.http.get<string>(this.BASE_URL+'/ping');
   }
 
-  obtenerPersonajes() {
-    return this.http.get<BrinderModel[]>(this.BASE_URL+'/personajes');
+  obtenerPersonajes(tipo: string) {
+    return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personajes/${tipo}`);
   }
 
   obtenerPersonaje(id: string) {
     return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personajes/${id}`);
   }
 
-  obtenerMatches() {
-    return this.http.get<any[]>(`${this.BASE_URL}/matches/todos`);
+  obtenerMatches(tipo: string) {
+    return this.http.get<any[]>(`${this.BASE_URL}/matches/todos/${tipo}`);
   }
 
   sendMatch(matchData: MatchModel) {
@@ -53,12 +53,12 @@ export class LonelyBardsService {
     return this.http.get<any[]>(`${this.BASE_URL}/contacto/${tipo}`);
   }
 
-  enviarMensaje(buzon: { codigo_origen: string; codigo_destino: string;  mensaje: string }) {
+  enviarMensaje(buzon: { codigo_origen: string; codigo_destino: string;  mensaje: string; tipo: string }) {
     return this.http.post<string>(`${this.BASE_URL}/buzon/enviar`, buzon);
   }
 
-  listarMensajesBuzon() {
-    return this.http.get<any[]>(`${this.BASE_URL}/buzon/todos`);
+  listarMensajesBuzon(tipo: string) {
+    return this.http.get<any[]>(`${this.BASE_URL}/buzon/todos/${tipo}`);
   }
 
   listarMensajes(codigoDestino: string) {

@@ -17,6 +17,7 @@ export class EstadisticasComponent implements OnInit {
   totalMatches: number = 0;
   @ViewChild('chart') private chartContainer: ElementRef | undefined;
   utils: Utils;
+    tipo: string = 'lonely';
 
   modoVista: 'estadisticas' | 'mensajes' = 'estadisticas';
 
@@ -30,12 +31,10 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarMatches(): void {
-    this.lonelyBardsService.obtenerMatches().subscribe((data) => {
+    this.lonelyBardsService.obtenerMatches(this.tipo).subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
-      this.matches = this.matches.filter((match) => match.tipo === 'lonely');
-      console.log(this.matches);
       this.totalMatches = this.matches.length; // Total de matches
       this.generarGrafico();
       this.calcularEstadisticasPersonajes();
@@ -43,11 +42,8 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.lonelyBardsService.obtenerPersonajes().subscribe((data) => {
+    this.lonelyBardsService.obtenerPersonajes(this.tipo).subscribe((data) => {
       this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
-      this.personajes = this.personajes.filter(
-        (personaje) => personaje.tipo === 'lonely'
-      );
     });
   }
 

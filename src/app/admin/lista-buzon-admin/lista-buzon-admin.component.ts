@@ -12,6 +12,7 @@ import { Utils } from 'src/app/shared/utils';
 export class ListaBuzonAdminComponent {
   mensajes: any[] = [];
   utils: Utils;
+  tipo: string = 'lonely';
 
   constructor(
     protected lonelyBardsService: LonelyBardsService,
@@ -26,8 +27,7 @@ export class ListaBuzonAdminComponent {
   }
 
   cargarMensajesBuzon(): void {
-    this.lonelyBardsService.listarMensajesBuzon().subscribe((data) => {
-      console.log(data)
+    this.lonelyBardsService.listarMensajesBuzon(this.tipo).subscribe((data) => {
       this.mensajes = data.map((msg) => ({ ...msg, expandido: false }));
     });
   }
