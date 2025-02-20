@@ -34,7 +34,7 @@ export class ListaPersonajesComponent implements OnInit {
 
   cargarPersonajes(): void {
     this.lonelyBardsService.obtenerPersonajes(this.tipo).subscribe((data) => {
-      this.personajes = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
+      this.personajes = data; // Orden alfabético
     });
   }
 

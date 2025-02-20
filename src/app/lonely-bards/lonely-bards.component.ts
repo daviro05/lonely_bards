@@ -40,14 +40,12 @@ export class LonelyBardsComponent implements OnInit {
 
   // Método para cargar los personajes desde el backend
   loadCharacters() {
-    this.brinderService.obtenerPersonajes(this.tipo).subscribe(
-      (data) => {
-        this.characters = data.sort((a, b) => a.name.localeCompare(b.name)); // Orden alfabético
-      },
-      (error) => {
-        console.error('Error al cargar los personajes:', error);
-      }
-    );
+    this.brinderService.obtenerPersonajes(this.tipo).subscribe((data) => {
+      this.characters = data;
+      this.characters = this.characters.filter(
+        (character) => character.activo === 'activo'
+      );
+    });
   }
 
   sendMatch() {
