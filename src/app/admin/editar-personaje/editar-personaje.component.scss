@@ -54,8 +54,8 @@ button {
   border-radius: 5px;
   &.guardar {
     margin-top: 15px;
-    border: 1px solid #f7d461;
-    background: #f8e091 !important;
+    border: 1px solid #a6775b;
+    background: #e3ccb7 !important;
   }
   &.volver {
     margin-top: 15px;
@@ -76,6 +76,6 @@ button {
   cursor: pointer; /* Cambia el cursor al pasar por encima */
 }
 
-.checkbox{
+.checkbox {
   transform: scale(1.5); /* Aumenta el tamaño del checkbox */
 }

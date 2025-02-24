@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.container {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
 
 .container-inicio {
   display: flex;
@@ -12,8 +16,7 @@
   align-items: center;
   height: 100vh;
   padding: 20px;
-  //background: rgb(255, 255, 247); /* Pergamino translúcido */
-  background-image: url("../../assets/back3.jpg");
+  background-image: url("../../assets/back.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +44,7 @@ h1 {
   left: 15px;
 }
 
-.admin{
+.admin {
   cursor: pointer;
   text-decoration: none;
   color: #a8a8a8;
@@ -62,56 +65,83 @@ h1 {
   }
 }
 
-// Animaciones titulo
-
 .animated-title {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 4rem;
   font-weight: bold;
+  font-family: "MedievalSharp";
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 
+/* Estilo para cada línea */
+.title-line {
+  display: flex;
+}
+
+/* Animación de cambio de color */
 .animated-title span {
   animation: colorChange 2s infinite alternate;
   display: inline-block;
+  padding: 0 5px;
 }
 
-/* Asignamos un retardo diferente a cada letra para que cambien de color de forma independiente */
-.animated-title span:nth-child(1) { animation-delay: 0s; }
-.animated-title span:nth-child(2) { animation-delay: 0.4s; }
-.animated-title span:nth-child(3) { animation-delay: 0.6s; }
-.animated-title span:nth-child(4) { animation-delay: 0.8s; }
-.animated-title span:nth-child(5) { animation-delay: 1s; }
-.animated-title span:nth-child(6) { animation-delay: 1.2s; }
-.animated-title span:nth-child(7) { animation-delay: 1.4s; }
+/* Asignamos un retardo diferente a cada letra */
+.animated-title span:nth-child(1) {
+  animation-delay: 0s;
+}
+.animated-title span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.animated-title span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.animated-title span:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.animated-title span:nth-child(5) {
+  animation-delay: 1s;
+}
+.animated-title span:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.animated-title span:nth-child(7) {
+  animation-delay: 1.4s;
+}
 
+/* Animación de colores medievales */
 @keyframes colorChange {
-  0% { color: #ffcf33; } /* Rojo */
-  50% { color: #3498db; } /* Azul */
-  100% { color: #9b59b6; } /* Morado */
+  0% {
+    color: #6a0dad;
+  } /* Morado oscuro */
+  100% {
+    color: #ffd700;
+  } /* Amarillo dorado */
 }
 
 .pushable {
-    background: #fada72;
-    width: 80%;
-    border-radius: 12px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline-offset: 4px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  }
-  .front {
-    display: block;
-    padding: 12px 42px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    background: #ffecad;
-    color: black;
-    transform: translateY(-6px);
-    text-transform: uppercase;
-  }
+  background: #a6775b;
+  width: 80%;
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.front {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #e3ccb7;
+  color: black;
+  transform: translateY(-6px);
+  text-transform: uppercase;
+}
 
-  .pushable:active .front {
-    transform: translateY(-2px);
-  }
+.pushable:active .front {
+  transform: translateY(-2px);
+}

@@ -65,13 +65,12 @@ button {
 }
 
 .guardar {
-  border: 1px solid #f7d461;
-  background: #f8e091 !important;
+  border: 1px solid #a6775b;
+  background: #e3ccb7 !important;
 }
 
 .volver {
   margin-top: 20px;
-  background: none !important;
 }
 
 .boton-cerrar {
@@ -86,13 +85,12 @@ button {
   background-color: #b71c1c;
 }
 
-
 $bordes: (
   rojo: #f8d3cf,
   azul: #5dade2,
   verde: #97dab4,
   amarillo: #f7dc6f,
-  generico: #a5d0ec
+  generico: #a5d0ec,
 );
 
 @each $nombre, $color in $bordes {

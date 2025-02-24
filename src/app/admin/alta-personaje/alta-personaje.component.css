@@ -19,8 +19,8 @@ button {
 }
 
 button:not(:disabled).guardar {
-  border: 1px solid #f7d461;
-  background: #f8e091 !important;
+  border: 1px solid #a6775b;
+  background: #e3ccb7 !important;
 }
 
 h1 {

@@ -6,13 +6,14 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 50px;
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
   padding: 20px;
   margin-top: 20px;
+  font-family: "MedievalSharp";
 }
 
 .contacto-info {
@@ -72,11 +73,10 @@ button {
 }
 
 .guardar {
-  border: 1px solid #f7d461;
-  background: #f8e091 !important;
+  border: 1px solid #a6775b;
+  background: #e3ccb7 !important;
 }
 
 .volver {
   margin-top: 20px;
-  background: none !important;
 }
