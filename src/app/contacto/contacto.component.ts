@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LonelyBardsService } from '../shared/services/lonely-bards.service';
+import { BrinderService } from '../shared/services/brinder.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Utils } from '../shared/utils';
@@ -15,7 +15,7 @@ export class ContactoComponent {
   utils: Utils;
 
   constructor(
-    private brinderService: LonelyBardsService,
+    private brinderService: BrinderService,
     private router: Router,
     private dialog: MatDialog
   ) {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { LonelyBardsService } from '../shared/services/lonely-bards.service';
+import { BrinderService } from '../shared/services/brinder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSimpleComponent } from '../dialog/dialog-simple/dialog-simple.component';
 
@@ -11,7 +11,7 @@ import { DialogSimpleComponent } from '../dialog/dialog-simple/dialog-simple.com
 })
 export class BackendGuard implements CanActivate {
   constructor(
-    private brinderService: LonelyBardsService,
+    private brinderService: BrinderService,
     private router: Router,
     private dialog: MatDialog
   ) {}

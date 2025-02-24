@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { BrinderModel } from 'src/app/shared/brinder.model';
+import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
-import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
@@ -20,7 +20,7 @@ export class EditarPersonajeComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private brinderService: LonelyBardsService,
+    private brinderService: BrinderService,
     private router: Router,
     private dialog: MatDialog,
     private clipboard: Clipboard
@@ -37,10 +37,11 @@ export class EditarPersonajeComponent {
     }
   }
 
-  toggleActivo(event: MatCheckboxChange): void {
-    const checked = event.checked;
-    this.personaje.activo = checked ? 'activo' : 'inactivo';
-  }
+toggleActivo(event: MatCheckboxChange): void {
+  const checked = event.checked;
+  this.personaje.activo = checked ? 'activo' : 'inactivo';
+}
+
 
   guardarCambios(): void {
     if (this.personaje.id) {

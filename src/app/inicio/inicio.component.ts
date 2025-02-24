@@ -4,7 +4,7 @@ import { Utils } from '../shared/utils';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSimpleComponent } from '../dialog/dialog-simple/dialog-simple.component';
-import { LonelyBardsService } from '../shared/services/lonely-bards.service';
+import { BrinderService } from '../shared/services/brinder.service';
 
 @Component({
   selector: 'app-inicio',
@@ -18,7 +18,7 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private dialog: MatDialog,
-    private brinderService: LonelyBardsService
+    private brinderService: BrinderService
   ) {
     this.utils = new Utils(this.router);
   }

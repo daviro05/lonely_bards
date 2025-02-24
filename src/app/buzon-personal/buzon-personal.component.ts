@@ -5,8 +5,6 @@ import { BuzonBaseComponent } from './buzon-base/buzon-base.component';
 import { BuzonService } from '../shared/services/buzon.service';
 import { Utils } from '../shared/utils';
 import { DialogComponent } from '../dialog/dialog.component';
-import { LonelyBardsService } from '../shared/services/lonely-bards.service';
-import { CodigoDialogComponent } from '../dialog/codigo-dialog/codigo-dialog.component';
 
 @Component({
   selector: 'app-buzon-personal',
@@ -15,7 +13,12 @@ import { CodigoDialogComponent } from '../dialog/codigo-dialog/codigo-dialog.com
 })
 export class BuzonPersonalComponent extends BuzonBaseComponent {
   personajes: any[] = [];
-  buzon = { codigo_origen: '', codigo_destino: '', mensaje: '', tipo: 'lonely' };
+  buzon = {
+    codigo_origen: '',
+    codigo_destino: '',
+    mensaje: '',
+    tipo: 'lonely',
+  };
   utils: Utils;
 
   constructor(

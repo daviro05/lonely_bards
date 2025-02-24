@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as d3 from 'd3';
 import { BrinderModel } from 'src/app/shared/brinder.model';
-import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
+import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -15,13 +15,13 @@ export class EstadisticasComponent implements OnInit {
   personajes: BrinderModel[] = [];
   personajeStats: any[] = [];
   totalMatches: number = 0;
+  tipo: string = 'lonely';
   @ViewChild('chart') private chartContainer: ElementRef | undefined;
   utils: Utils;
-    tipo: string = 'lonely';
 
   modoVista: 'estadisticas' | 'mensajes' = 'estadisticas';
 
-  constructor(private lonelyBardsService: LonelyBardsService, private router: Router) {
+  constructor(private brinderService: BrinderService, private router: Router) {
     this.utils = new Utils(this.router);
   }
 
@@ -31,7 +31,7 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarMatches(): void {
-    this.lonelyBardsService.obtenerMatches(this.tipo).subscribe((data) => {
+    this.brinderService.obtenerMatches(this.tipo).subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
@@ -42,7 +42,7 @@ export class EstadisticasComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.lonelyBardsService.obtenerPersonajes(this.tipo).subscribe((data) => {
+    this.brinderService.obtenerPersonajes(this.tipo).subscribe((data) => {
       this.personajes = data;
     });
   }

@@ -4,32 +4,27 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100%;
-  width: 100%;
-  font-family: "Roboto", serif;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
-.container {
+.container-inicio {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100vh;
   padding: 20px;
-  background: rgb(255, 255, 247); /* Pergamino translúcido */
+  //background: rgb(255, 255, 247); /* Pergamino translúcido */
+  background-image: url("../../assets/back3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin-top: 20px;
-  font-family: "MedievalSharp";
-  animation: fadeIn 1s ease-out; /* Añadimos animaciones */
 }
 
 .button-container {
@@ -41,43 +36,82 @@ h1 {
   flex-grow: 1;
 }
 
+.icon {
+  position: absolute;
+  left: 15px;
+}
+
+.admin{
+  cursor: pointer;
+  text-decoration: none;
+  color: #a8a8a8;
+}
+
 .footer {
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 14px;
   color: #a8a8a8;
   padding: 10px;
   width: 100%;
-}
+  display: flex;
 
-.medieval-button {
-  padding: 10px 20px;
-  background-color: #795649; /* A dark wood-like brown */
-  color: #f4e5c3; /* A parchment-like off-white */
-  border: 2px solid #c0a080; /* A lighter brown border */
-  width: 80%;
-  text-shadow: 1px 1px 0px #a67c52; /* Gives a bit of depth to the text */
-  box-shadow: 2px 2px 0px #a67c52; /* Simulates an inset look */
-  border-radius: 4px; /* Slightly rounded corners */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.medieval-button:hover {
-  background-color: #858585; /* A lighter, worn wood color for hover */
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3); /* A more pronounced shadow for hover */
-}
-
-.medieval-button:active {
-  box-shadow: inset 1px 1px 2px 0px rgba(0, 0, 0, 0.5); /* An inset shadow for a pressed effect */
-  transform: translateY(2px); /* Moves the button down to simulate a press */
-}
-
-/* Animación de entrada suave */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  mat-icon {
+    font-size: 21px;
   }
 }
+
+// Animaciones titulo
+
+.animated-title {
+  display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.animated-title span {
+  animation: colorChange 2s infinite alternate;
+  display: inline-block;
+}
+
+/* Asignamos un retardo diferente a cada letra para que cambien de color de forma independiente */
+.animated-title span:nth-child(1) { animation-delay: 0s; }
+.animated-title span:nth-child(2) { animation-delay: 0.4s; }
+.animated-title span:nth-child(3) { animation-delay: 0.6s; }
+.animated-title span:nth-child(4) { animation-delay: 0.8s; }
+.animated-title span:nth-child(5) { animation-delay: 1s; }
+.animated-title span:nth-child(6) { animation-delay: 1.2s; }
+.animated-title span:nth-child(7) { animation-delay: 1.4s; }
+
+@keyframes colorChange {
+  0% { color: #ffcf33; } /* Rojo */
+  50% { color: #3498db; } /* Azul */
+  100% { color: #9b59b6; } /* Morado */
+}
+
+.pushable {
+    background: #fada72;
+    width: 80%;
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  .front {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #ffecad;
+    color: black;
+    transform: translateY(-6px);
+    text-transform: uppercase;
+  }
+
+  .pushable:active .front {
+    transform: translateY(-2px);
+  }

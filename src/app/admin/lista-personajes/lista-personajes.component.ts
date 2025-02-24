@@ -5,7 +5,7 @@ import { CodigoDialogComponent } from 'src/app/dialog/codigo-dialog/codigo-dialo
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { BrinderModel } from 'src/app/shared/brinder.model';
 import { MatchModel } from 'src/app/shared/match.model';
-import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
+import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -20,7 +20,7 @@ export class ListaPersonajesComponent implements OnInit {
   tipo: string = 'lonely';
 
   constructor(
-    private lonelyBardsService: LonelyBardsService,
+    private brinderService: BrinderService,
     private router: Router,
     private dialog: MatDialog
   ) {
@@ -33,22 +33,23 @@ export class ListaPersonajesComponent implements OnInit {
   }
 
   cargarPersonajes(): void {
-    this.lonelyBardsService.obtenerPersonajes(this.tipo).subscribe((data) => {
+    this.brinderService.obtenerPersonajes(this.tipo).subscribe((data) => {
       this.personajes = data; // Orden alfabético
     });
   }
 
   cargarMatches(): void {
-    this.lonelyBardsService.obtenerMatches(this.tipo).subscribe((data) => {
+    this.brinderService.obtenerMatches(this.tipo).subscribe((data) => {
       this.matches = data.sort((a, b) =>
         a.personaje1_name.localeCompare(b.personaje1_name)
       ); // Orden alfabético
+      this.matches = this.matches.filter((match) => match.tipo === 'brinder');
     });
   }
 
   eliminarPersonaje(id: string): void {
     if (confirm('¿Seguro que quieres eliminar este personaje?')) {
-      this.lonelyBardsService.borrarPersonaje(id).subscribe(
+      this.brinderService.borrarPersonaje(id).subscribe(
         () => {
           this.personajes = this.personajes.filter((p) => p.id !== id);
         },
@@ -56,7 +57,7 @@ export class ListaPersonajesComponent implements OnInit {
           console.error('Error al editar al personaje:', error);
           this.openDialog(
             'Error',
-            'Hubo un error al editar al personaje. Contacta con el Centurión.'
+            'Hubo un error al editar al personaje. Contacta con el Zorro Negro.'
           );
         }
       );
@@ -95,7 +96,7 @@ export class ListaPersonajesComponent implements OnInit {
     if (ruta === 'admin/buzon') {
       const dialogRef = this.dialog.open(CodigoDialogComponent, {
         disableClose: true,
-        data: { recordar: false, tipo: 'codigo' },
+        data: {recordar: false, tipo: 'codigo'}
       });
 
       dialogRef.afterClosed().subscribe((result) => {

@@ -11,7 +11,6 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para darle profundidad */
   letter-spacing: 2px; /* Espaciado entre letras para un estilo más medieval */
   padding: 20px;
-  font-family: "MedievalSharp";
 }
 
 .buzon-info {
@@ -87,12 +86,13 @@ button {
   background-color: #b71c1c;
 }
 
+
 $bordes: (
   rojo: #f8d3cf,
   azul: #5dade2,
   verde: #97dab4,
   amarillo: #f7dc6f,
-  generico: #a5d0ec,
+  generico: #a5d0ec
 );
 
 @each $nombre, $color in $bordes {

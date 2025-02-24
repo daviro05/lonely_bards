@@ -12,10 +12,11 @@ html {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin-top: 20px;
-  font-family: "MedievalSharp";
 }
 
 .info-container {
@@ -24,7 +25,6 @@ h1 {
   align-items: center;
   height: 100vh;
   padding: 20px;
-  background: rgb(255, 255, 247); /* Pergamino translúcido */
 }
 
 .title {
@@ -35,7 +35,7 @@ h1 {
   font-size: 17px;
   overflow-y: auto;
   text-align: left;
-  background: rgba(255, 255, 224, 0.9);
+  background: rgb(255, 255, 247);
   border: 2px solid #5a3e1b;
   border-radius: 10px;
   padding: 20px;
@@ -43,4 +43,11 @@ h1 {
 
 .button-container {
   margin-top: 20px;
+  display: grid;
+}
+
+.descargar {
+  border: 1px solid #f7d461;
+  background: #f8e091 !important;
+  margin-bottom: 10px;
 }

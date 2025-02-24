@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
+import { BrinderService } from 'src/app/shared/services/brinder.service';
+import { BuzonService } from 'src/app/shared/services/buzon.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -15,7 +16,7 @@ export class ListaBuzonAdminComponent {
   tipo: string = 'lonely';
 
   constructor(
-    protected lonelyBardsService: LonelyBardsService,
+    protected brinderService: BrinderService,
     protected router: Router,
     protected dialog: MatDialog
   ) {
@@ -27,7 +28,8 @@ export class ListaBuzonAdminComponent {
   }
 
   cargarMensajesBuzon(): void {
-    this.lonelyBardsService.listarMensajesBuzon(this.tipo).subscribe((data) => {
+    this.brinderService.listarMensajesBuzon(this.tipo).subscribe((data) => {
+      //console.log(data)
       this.mensajes = data.map((msg) => ({ ...msg, expandido: false }));
     });
   }

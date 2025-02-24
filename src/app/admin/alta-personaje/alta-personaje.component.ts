@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LonelyBardsService } from '../../shared/services/lonely-bards.service';
+import { BrinderService } from '../../shared/services/brinder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { Utils } from '../../shared/utils';
@@ -21,7 +21,7 @@ export class AltaPersonajeComponent {
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
-    private brinderService: LonelyBardsService,
+    private brinderService: BrinderService,
     private router: Router
   ) {
     this.utils = new Utils(this.router);

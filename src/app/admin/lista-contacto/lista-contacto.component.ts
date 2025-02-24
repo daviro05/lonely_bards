@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { LonelyBardsService } from 'src/app/shared/services/lonely-bards.service';
+import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
 
 @Component({
@@ -15,7 +15,7 @@ export class ListaContactoComponent implements OnInit {
   utils: Utils;
 
   constructor(
-    protected lonelyBardsService: LonelyBardsService,
+    protected brinderService: BrinderService,
     protected router: Router,
     protected dialog: MatDialog
   ) {
@@ -27,7 +27,7 @@ export class ListaContactoComponent implements OnInit {
   }
 
   cargarMensajesContacto(): void {
-    this.lonelyBardsService.listarMensajesContacto(this.tipo).subscribe((data) => {
+    this.brinderService.listarMensajesContacto(this.tipo).subscribe((data) => {
       this.mensajes = data.map((msg) => ({ ...msg, expandido: false }));
     });
   }
