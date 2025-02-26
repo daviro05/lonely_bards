@@ -37,14 +37,14 @@ export class EditarPersonajeComponent {
     }
   }
 
-toggleActivo(event: MatCheckboxChange): void {
-  const checked = event.checked;
-  this.personaje.activo = checked ? 'activo' : 'inactivo';
-}
-
+  toggleActivo(event: MatCheckboxChange): void {
+    const checked = event.checked;
+    this.personaje.activo = checked ? 'activo' : 'inactivo';
+  }
 
   guardarCambios(): void {
     if (this.personaje.id) {
+      this.personaje.image_url = this.getGoogleDriveImageUrl(this.personaje.image_url);
       this.brinderService
         .updatePersonaje(this.personaje.id, this.personaje)
         .subscribe(
@@ -80,6 +80,14 @@ toggleActivo(event: MatCheckboxChange): void {
   copiarAlPortapapeles(): void {
     this.clipboard.copy(this.personaje.codigo);
     //alert('Código copiado al portapapeles');
+  }
+
+  getGoogleDriveImageUrl(driveUrl: string): string {
+    const match = driveUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (match && match[1]) {
+      return `https://lh3.googleusercontent.com/d/${match[1]}`;
+    }
+    return ''; // Devuelve una cadena vacía si la URL no es válida
   }
 
   navegar(ruta: string) {
