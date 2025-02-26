@@ -5,6 +5,7 @@ import { CodigoDialogComponent } from 'src/app/dialog/codigo-dialog/codigo-dialo
 import { DialogComponent } from 'src/app/dialog/dialog.component';
 import { BrinderModel } from 'src/app/shared/brinder.model';
 import { MatchModel } from 'src/app/shared/match.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { BrinderService } from 'src/app/shared/services/brinder.service';
 import { Utils } from 'src/app/shared/utils';
 
@@ -21,6 +22,7 @@ export class ListaPersonajesComponent implements OnInit {
 
   constructor(
     private brinderService: BrinderService,
+    private authService: AuthService,
     private router: Router,
     private dialog: MatDialog
   ) {
@@ -91,22 +93,29 @@ export class ListaPersonajesComponent implements OnInit {
     }
   }
 
-  navegar(ruta: string) {
-    if (ruta === 'admin/buzon') {
-      const dialogRef = this.dialog.open(CodigoDialogComponent, {
-        disableClose: true,
-        data: {recordar: false, tipo: 'codigo'}
-      });
+navegar(ruta: string) {
+  if (ruta === 'admin/buzon') {
+    const dialogRef = this.dialog.open(CodigoDialogComponent, {
+      disableClose: true,
+      data: { recordar: false, tipo: 'codigo' }
+    });
 
-      dialogRef.afterClosed().subscribe((result) => {
-        if (result && result.valor === 'abrakadabra') {
-          this.router.navigate(['/admin/buzon']);
-        } else {
-          this.router.navigate(['/admin']);
-        }
-      });
-    } else {
-      this.utils.navegar(ruta);
-    }
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result.valor) {
+        this.authService.verificarCodigo(result.valor).subscribe((respuesta) => {
+          if (respuesta.valido) {
+            this.router.navigate(['/admin/buzon']);
+          } else {
+            this.router.navigate(['/admin']);
+          }
+        });
+      } else {
+        this.router.navigate(['/admin']);
+      }
+    });
+  } else {
+    this.utils.navegar(ruta);
   }
+}
+
 }
