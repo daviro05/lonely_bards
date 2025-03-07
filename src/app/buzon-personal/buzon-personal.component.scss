@@ -3,6 +3,7 @@
   text-align: center;
   background: rgb(255, 255, 247); /* Pergamino translúcido */
   padding: 20px;
+  border-radius: 10px;
 }
 
 h1 {
@@ -49,8 +50,14 @@ input {
   display: inline-grid;
 }
 
+.button-container-secondary {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
 button {
-  margin-top: 15px;
   padding: 10px;
   border: none;
   cursor: pointer;
@@ -60,23 +67,14 @@ button {
 .guardar {
   border: 1px solid #a6775b;
   background: #e3ccb7 !important;
-}
-
-.volver {
-  margin-top: 20px;
+  height: 40px;
 }
 
 .boton-cerrar {
-  margin-top: 20px;
-  width: 100%;
-  font-weight: bold;
   background-color: #d32f2f;
   color: white;
 }
 
-.boton-cerrar:hover {
-  background-color: #b71c1c;
-}
 
 $bordes: (
   rojo: #f8d3cf,
