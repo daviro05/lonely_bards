@@ -100,6 +100,22 @@ button {
   display: flex;
   justify-content: center;
   gap: 20px;
+
+  .stat-item{
+    display: contents;
+
+    .selected{
+      border:1px solid #a6775b;
+      background-color: #e3ccb7;
+    }
+  }
+}
+
+.button-container-secondary {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .mensajes-section {
