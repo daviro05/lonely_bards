@@ -130,6 +130,7 @@ h1 {
   outline-offset: 4px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
+
 .front {
   display: block;
   padding: 12px 42px;
@@ -144,4 +145,20 @@ h1 {
 
 .pushable:active .front {
   transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #a8a8a8;
+}
+
+.disabled {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background: #d8d8d8;
+  color: black;
+  transform: translateY(-6px);
+  text-transform: uppercase;
 }
