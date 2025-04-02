@@ -13,6 +13,8 @@ export class KillerComponent {
   characters: any[] = [];
   utils: Utils;
   killer: any[] = [];
+  vivos: string = '';
+  muertos: string = ''
   tipo: string = 'lonely';
 
   constructor(private brinderService: BrinderService, private router: Router) {
@@ -35,10 +37,19 @@ export class KillerComponent {
         ...character,
         estado: character.rol?.split(';')[3]?.trim(),
       }));
+
+      // Separar personajes en vivos y muertos
+      this.vivos = this.characters.filter(
+        (character) => character.estado === 'vivo'
+      ).length.toString();
+      this.muertos = this.characters.filter(
+        (character) => character.estado === 'muerto'
+      ).length.toString();
     });
   }
 
   navegar(ruta: string) {
     this.utils.navegar(ruta);
   }
+
 }
