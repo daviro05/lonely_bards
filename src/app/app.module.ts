@@ -34,6 +34,7 @@ import { ListaContactoComponent } from './admin/lista-contacto/lista-contacto.co
 import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-admin.component';
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { KillerComponent } from './killer/killer.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     ListaContactoComponent,
     ListaBuzonAdminComponent,
     EstadisticasComponent,
+    KillerComponent,
   ],
   imports: [
     BrowserModule,
