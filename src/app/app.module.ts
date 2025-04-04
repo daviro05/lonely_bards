@@ -35,6 +35,8 @@ import { ListaBuzonAdminComponent } from './admin/lista-buzon-admin/lista-buzon-
 import { EstadisticasComponent } from './admin/estadisticas/estadisticas.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { KillerComponent } from './killer/killer.component';
+import { environment } from 'src/environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,9 @@ import { KillerComponent } from './killer/killer.component';
     MatCheckboxModule,
     ClipboardModule,
     MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   exports: [DialogSimpleComponent],
   providers: [],
