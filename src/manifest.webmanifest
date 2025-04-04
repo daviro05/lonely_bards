@@ -1,7 +1,7 @@
 {
   "name": "Lonely Bards",
   "short_name": "LBards",
-  "start_url": "/inicio",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#673ab7",
