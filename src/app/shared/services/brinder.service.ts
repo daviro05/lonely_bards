@@ -41,7 +41,7 @@ export class BrinderService {
   }
 
   obtenerPersonaje(id: string) {
-    return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personaje/${id}`);
+    return this.http.get<BrinderModel[]>(`${this.BASE_URL}/personajes/personaje/${id}`);
   }
 
   obtenerMatches(tipo: string) {

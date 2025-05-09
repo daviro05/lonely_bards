@@ -13,6 +13,6 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   verificarCodigo(codigo: string): Observable<{ valido: boolean }> {
-    return this.http.post<{ valido: boolean }>(`${this.BASE_URL}/verificar-codigo`, {codigo});
+    return this.http.post<{ valido: boolean }>(`${this.BASE_URL}/personajes/verificar-codigo`, {codigo});
   }
 }
